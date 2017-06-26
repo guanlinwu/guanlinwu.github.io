@@ -381,6 +381,7 @@ body {
   margin-top: 16px;
 }
 #main-nav {
+  font-size: 16px;
   float: left;
   margin-left: -15px;
 }
@@ -415,11 +416,15 @@ body {
 .main-nav-link {
   font-weight: 300;
   letter-spacing: 1px;
+  text-align: center;
 }
 @media screen and (max-width: 479px) {
   .main-nav-link {
     display: none;
   }
+}
+.main-nav-link.active {
+  opacity: 1;
 }
 #main-nav-toggle {
   display: none;
@@ -678,6 +683,7 @@ a.article-title:hover {
   line-height: 1em;
   padding: 6px 15px;
   border-radius: 15px;
+  border: 1px solid #999;
   background: #fff;
   color: #999;
   text-shadow: 0 1px #fff;
@@ -687,6 +693,7 @@ a.article-title:hover {
   background: #258fb8;
   color: #fff;
   text-decoration: none;
+  border: 1px solid #258fb8;
   text-shadow: 0 1px #1e7293;
 }
 .article-footer {
@@ -1281,6 +1288,10 @@ pre .javascript .function {
     text-decoration: none;
     padding: 15px 20px;
     font-weight: bold;
+  }
+  .mobile-nav-link.active {
+    color: #fff;
+    background: rgba(3,169,244,0.45);
   }
   .mobile-nav-link:hover {
     color: #fff;
