@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React自研篇 | guanlinwu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在唯品会离职之前就学习React语法以及了解Flux，离职之后，当然是学会使用它。第一次接触React，就觉得JSX语法能很简单、明了、直观地去开发组件，虽然React只是单向流的view层框架，可是结合Redux，就能支撑起庞大的单页面应用。抽象的虚拟Dom，极快的diff算法，提高了性能。而且，学一套React语法，还可以跨端开发，能够用React Native去开发App。 下面列一下自己学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React自研篇">
+<meta property="og:url" content="https://guanlinwu.github.io/2017/06/27/React自研篇/index.html">
+<meta property="og:site_name" content="guanlinwu">
+<meta property="og:description" content="在唯品会离职之前就学习React语法以及了解Flux，离职之后，当然是学会使用它。第一次接触React，就觉得JSX语法能很简单、明了、直观地去开发组件，虽然React只是单向流的view层框架，可是结合Redux，就能支撑起庞大的单页面应用。抽象的虚拟Dom，极快的diff算法，提高了性能。而且，学一套React语法，还可以跨端开发，能够用React Native去开发App。 下面列一下自己学">
+<meta property="og:image" content="https://guanlinwu.github.io/images/react_1.png">
+<meta property="og:image" content="https://guanlinwu.github.io/images/react_4.png">
+<meta property="og:image" content="https://guanlinwu.github.io/images/react_3.png">
+<meta property="og:image" content="https://guanlinwu.github.io/images/react_5.png">
+<meta property="og:image" content="https://guanlinwu.github.io/images/react_2.png">
+<meta property="og:updated_time" content="2017-06-27T15:51:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React自研篇">
+<meta name="twitter:description" content="在唯品会离职之前就学习React语法以及了解Flux，离职之后，当然是学会使用它。第一次接触React，就觉得JSX语法能很简单、明了、直观地去开发组件，虽然React只是单向流的view层框架，可是结合Redux，就能支撑起庞大的单页面应用。抽象的虚拟Dom，极快的diff算法，提高了性能。而且，学一套React语法，还可以跨端开发，能够用React Native去开发App。 下面列一下自己学">
+<meta name="twitter:image" content="https://guanlinwu.github.io/images/react_1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="guanlinwu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <!--<h1 id="logo-wrap">
+        <a href="/" id="logo">guanlinwu</a>
+      </h1>-->
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <!--<nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guanlinwu.github.io"></form>
+      </div>-->
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-React自研篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/27/React自研篇/" class="article-date">
+  <time datetime="2017-06-27T02:20:54.000Z" itemprop="datePublished">2017-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React自研篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在唯品会离职之前就学习React语法以及了解Flux，离职之后，当然是学会使用它。<br>第一次接触React，就觉得JSX语法能很简单、明了、直观地去开发组件，虽然React只是单向流的view层框架，可是结合Redux，就能支撑起庞大的单页面应用。抽象的虚拟Dom，极快的diff算法，提高了性能。<br>而且，学一套React语法，还可以跨端开发，能够用React Native去开发App。</p>
+<p>下面列一下自己学习React过程中的知识大纲。<br><a id="more"></a></p>
+<h2 id="React-Element-与-React-Component"><a href="#React-Element-与-React-Component" class="headerlink" title="React Element 与 React Component"></a>React Element 与 React Component</h2><p>React Element描述了在屏幕上看到的内容，代表了DOM节点的对象，具有描述DOM对象的属性，如type，props，ref······</p>
+<p>React Component 是一个函数或者一个类，接受参数并返回了一个React element。</p>
+<h2 id="React-生命周期"><a href="#React-生命周期" class="headerlink" title="React 生命周期"></a>React 生命周期</h2><ul>
+<li><p>Mounting</p>
+<ul>
+<li>getDefaultProps</li>
+<li>getInitialState</li>
+<li>componentWillMount</li>
+<li>render</li>
+<li>componentDidMount</li>
+</ul>
+</li>
+<li><p>Updating</p>
+<ul>
+<li>componentWillReceiveProps</li>
+<li>shouldComponentUpdate</li>
+<li>componentWillUpdate</li>
+<li>render</li>
+<li>componentDidUpdate</li>
+</ul>
+</li>
+<li><p>Unmounting</p>
+<ul>
+<li>componentWillUnmount</li>
+</ul>
+</li>
+</ul>
+<h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><h2 id="React-优化"><a href="#React-优化" class="headerlink" title="React 优化"></a>React 优化</h2><ul>
+<li>shouldComponentUpdate</li>
+<li>有状态和无状态组件</li>
+<li>immutable</li>
+<li>服务端渲染</li>
+</ul>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p><a href="http://www.redux.org.cn/docs/react-redux/quick-start.html" target="_blank" rel="external">Redux文档</a><br>Redux的源码不大，可是很精妙，使用单一树更好地管理数据，所有的 state 都以一个对象树的形式储存在一个单一的 store 中。<br>流向的过程：<br>view —&gt; action —&gt; reducer —&gt; store(state) —&gt; view<br>一、Action<br>Action 的任务是描述发生的任务<br>二、Reducer<br>Reducer 的任务是根据传入的 Action 对象去修改状态树<br>三、Store<br>Store 就是把 Reducer 和 action 联系到一起的对象<br>在 createStore源码中可以看到store返回的对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//createStore</span></div><div class="line"><span class="keyword">return</span> &#123;</div><div class="line">  dispatch,<span class="comment">//提供 dispatch(action) 方法更新 state</span></div><div class="line">  subscribe,<span class="comment">//通过 subscribe(listener) 注册监听器</span></div><div class="line">  getState,<span class="comment">//getState() 方法获取 state；</span></div><div class="line">  replaceReducer,</div><div class="line">  [$$observable]: observable</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="自学实践"><a href="#自学实践" class="headerlink" title="自学实践"></a>自学实践</h2><p>还没有机会能够用到公司项目中，离职前其实已经在用react去重构唯品会viva产品化项目渲染页了，因为考虑到，通过生成器，每个活动页会生成一堆单一状态的json，然后根据json去构建组件，派发事件，刚刚React+Redux 是最好的实践，单一树状态的单向管理，肯定可以提高项目的渲染效率和体验。</p>
+<p>可是我自己自研尝试了下。没有主题地搞了个脚手架和简单页面，不过也基本包含了方方面面。<br>小项目（<a href="https://github.com/guanlinwu/reduxplatform/tree/v3.0" target="_blank" rel="external">Github代码</a>）涉及的：es6 + React + Redux + React-Router + Sass + Iconfont</p>
+<p>项目脚手架一开始是自己用Webpack1搭建的，后来自己升级了Webpack2，再后来参考了官方facebook的create-app脚手架，就把它搬过来了，目录架构是根据实际情况搭的。</p>
+<p>目录结构如下：<br><img src="/images/react_1.png" alt=""></p>
+<p>页面展示：</p>
+<p><img src="/images/react_4.png" alt=""><br><img src="/images/react_3.png" alt=""><br><img src="/images/react_5.png" alt=""><br><img src="/images/react_2.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/React自研篇/" data-id="cj4fraggf0000lpe7yc39vmld" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/27/Vue自研篇/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vue自研篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/26/唯品会项目篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">唯品会项目篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/工作/" style="font-size: 20px;">工作</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/27/Vue自研篇/">Vue自研篇</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/27/React自研篇/">React自研篇</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/26/唯品会项目篇/">唯品会项目篇</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/24/唯品会的专题活动篇/">唯品会的专题活动篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 guanlin.wu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
