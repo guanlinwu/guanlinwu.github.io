@@ -127,6 +127,12 @@ body {
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
+a,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 .outer {
   max-width: 1220px;
   margin: 0 auto;
@@ -695,6 +701,14 @@ a.article-title:hover {
   text-decoration: none;
   border: 1px solid #258fb8;
   text-shadow: 0 1px #1e7293;
+}
+@media screen and (max-width: 479px) {
+  .article-more-link a:hover {
+    background: none;
+    color: #999;
+    border: 1px solid #999;
+    text-shadow: 0 1px #fff;
+  }
 }
 .article-footer {
   font-size: 0.85em;
