@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://guanlinwu.github.io/images/vue_3.png">
 <meta property="og:image" content="https://guanlinwu.github.io/images/vue_4.png">
 <meta property="og:image" content="https://guanlinwu.github.io/images/vue_5.png">
-<meta property="og:updated_time" content="2017-06-27T14:26:53.000Z">
+<meta property="og:updated_time" content="2017-06-27T15:57:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue自研篇">
 <meta name="twitter:description" content="Vue是当前非常火热的前端框架之一，特别是vue2.0，强劲了不少。趁着做外包系统（Github代码），就用vue2.0 + vue-router + axios + vue-cli + element-ui + electron 去实践了一下。最终，代码用vue开发，然后打包成一个electron桌面应用程序。由于上传的代码没有完整的后端接口，所以自己用node + express写了一个个性化">
@@ -28,7 +28,7 @@
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
   
   <link rel="stylesheet" href="/css/style.css">
   
@@ -72,7 +72,7 @@
         <section id="main"><article id="post-Vue自研篇" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/27/Vue自研篇/" class="article-date">
-  <time datetime="2017-06-27T08:31:35.000Z" itemprop="datePublished">2017-06-27</time>
+  <time datetime="2017-06-27T15:51:50.000Z" itemprop="datePublished">2017-06-27</time>
 </a>
     
   </div>
@@ -94,18 +94,15 @@
         <p>Vue是当前非常火热的前端框架之一，特别是vue2.0，强劲了不少。<br>趁着做外包系统（<a href="https://github.com/guanlinwu/quanjian/tree/v2/frontend" target="_blank" rel="external">Github代码</a>），就用vue2.0 + vue-router + axios + vue-cli + element-ui + electron 去实践了一下。<br>最终，代码用vue开发，然后打包成一个electron桌面应用程序。<br>由于上传的代码没有完整的后端接口，所以自己用node + express写了一个个性化的假数据服务器。</p>
 <a id="more"></a>
 <h2 id="前端目录结构如下："><a href="#前端目录结构如下：" class="headerlink" title="前端目录结构如下："></a>前端目录结构如下：</h2><p><img src="/images/vue_1.png" alt="目录结构"></p>
-<h3 id="解释一下src目录"><a href="#解释一下src目录" class="headerlink" title="解释一下src目录"></a>解释一下src目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">+ src</div><div class="line">    - api           管理接口medel层，每一个模块一个文件，如会员管理模块，商品管理模块</div><div class="line">    - components    故名思义，就是存放组件的文件，里面还会细分</div><div class="line">    - router        路由管理</div><div class="line">    - styles        基础样式管理</div><div class="line">    - utils         工具函数，如重新封装的axios, localstorage</div><div class="line">    - views         管理每个页面的容器</div><div class="line">    - App.vue       入口组件大容器</div><div class="line">    - main.js       入口js</div><div class="line">    - assets        暂时存放图片s</div></pre></td></tr></table></figure>
-<h2 id="假数据服务器是用express写的"><a href="#假数据服务器是用express写的" class="headerlink" title="假数据服务器是用express写的"></a>假数据服务器是用express写的</h2><p><a href="https://github.com/guanlinwu/quanjian/tree/v2/frontend/mock" target="_blank" rel="external">代码地址</a><br>感觉写得有点像模块化，每个文件对应每部分的接口，用node去读取该文件夹的文件，把所有接口整理成一个对象，然后用一个工厂函数统一处理接口。后续继续补充</p>
+<h2 id="解释一下src目录"><a href="#解释一下src目录" class="headerlink" title="解释一下src目录"></a>解释一下src目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">+ src</div><div class="line">    - api           管理接口medel层，每一个模块一个文件，如会员管理模块，商品管理模块</div><div class="line">    - components    故名思义，就是存放组件的文件，里面还会细分</div><div class="line">    - router        路由管理</div><div class="line">    - styles        基础样式管理</div><div class="line">    - utils         工具函数，如重新封装的axios, localstorage</div><div class="line">    - views         管理每个页面的容器</div><div class="line">    - App.vue       入口组件大容器</div><div class="line">    - main.js       入口js</div><div class="line">    - assets        暂时存放图片s</div></pre></td></tr></table></figure>
+<h2 id="express假数据服务器"><a href="#express假数据服务器" class="headerlink" title="express假数据服务器"></a>express假数据服务器</h2><p>（<a href="https://github.com/guanlinwu/quanjian/tree/v2/frontend/mock" target="_blank" rel="external">Github代码</a>）<br>感觉写得有点像模块化，每个文件对应每部分的接口，用node去读取该文件夹的文件，把所有接口整理成一个对象，然后用一个工厂函数统一处理接口。后续继续补充</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>之前有看过vue语法，也有看它双向绑定的原理（核心函数Object.defineproperty），如今在一个外包中实践了vue全家桶，学习了一遍语法和关键函数，也了解了vue的一些生命周期，学习了如何使用vue组件，也学习了饿了么的element-ui框架，根据项目情况去定义文件夹和管理架构，后端接口采用的是restful架构，合作起来效率极高。</p>
-<h2 id="部分界面："><a href="#部分界面：" class="headerlink" title="部分界面："></a>部分界面：</h2><p><img src="/images/vue_2.png" alt="登陆"></p>
-<p><img src="/images/vue_3.png" alt="会员"></p>
-<p><img src="/images/vue_4.png" alt="销售"></p>
-<p><img src="/images/vue_5.png" alt="销售"></p>
+<h2 id="部分界面"><a href="#部分界面" class="headerlink" title="部分界面"></a>部分界面</h2><p><img src="/images/vue_2.png" alt="登陆"><br><img src="/images/vue_3.png" alt="会员"><br><img src="/images/vue_4.png" alt="销售"><br><img src="/images/vue_5.png" alt="销售"></p>
 
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/Vue自研篇/" data-id="cj4fbcjxx0000e9e74ze9s9p5" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/Vue自研篇/" data-id="cj4fraggj0001lpe749c9tma6" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -196,6 +193,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 guanlin.wu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
