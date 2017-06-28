@@ -25,10 +25,17 @@ input, button
 html, body, #container
   height: 100%
 
+*
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+    -webkit-tap-highlight-color:transparent
+
+
 body
   background: color-background
   font: font-size font-sans
   -webkit-text-size-adjust: 100%
+  @media mq-mobile
+    -webkit-user-select: none;
 
 .outer
   clearfix()
