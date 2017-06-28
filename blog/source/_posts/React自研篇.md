@@ -1,7 +1,7 @@
 ---
 title: React自研篇
 date: 2017-06-27 10:20:54
-tags:
+tags: [React, 项目]
 ---
 
 在唯品会离职之前就学习React语法以及了解Flux，离职之后，当然是学会使用它。

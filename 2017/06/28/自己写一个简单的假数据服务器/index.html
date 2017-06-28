@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>从0开发一个假数据服务器 | guanlinwu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="现在开发都是前后端分离，在后端接口没有出来之前，使用假数据mock能提高开发效率。现在执行假数据的方法有很多，如mock.js, easymock，json-server。因为接触了node.js，能够捕捉请求并返回数据，所以我尝试给自己写一个简单的假数据服务器。（完整代码）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从0开发一个假数据服务器">
+<meta property="og:url" content="https://guanlinwu.github.io/2017/06/28/自己写一个简单的假数据服务器/index.html">
+<meta property="og:site_name" content="guanlinwu">
+<meta property="og:description" content="现在开发都是前后端分离，在后端接口没有出来之前，使用假数据mock能提高开发效率。现在执行假数据的方法有很多，如mock.js, easymock，json-server。因为接触了node.js，能够捕捉请求并返回数据，所以我尝试给自己写一个简单的假数据服务器。（完整代码）">
+<meta property="og:image" content="https://guanlinwu.github.io/images/mock_1.png">
+<meta property="og:updated_time" content="2017-06-28T08:46:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从0开发一个假数据服务器">
+<meta name="twitter:description" content="现在开发都是前后端分离，在后端接口没有出来之前，使用假数据mock能提高开发效率。现在执行假数据的方法有很多，如mock.js, easymock，json-server。因为接触了node.js，能够捕捉请求并返回数据，所以我尝试给自己写一个简单的假数据服务器。（完整代码）">
+<meta name="twitter:image" content="https://guanlinwu.github.io/images/mock_1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="guanlinwu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">guanlinwu</a>
+        <!--<a href="/" id="logo">fight</a>-->
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <!--<nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guanlinwu.github.io"></form>
+      </div>-->
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-自己写一个简单的假数据服务器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/28/自己写一个简单的假数据服务器/" class="article-date">
+  <time datetime="2017-06-28T03:33:25.000Z" itemprop="datePublished">2017-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从0开发一个假数据服务器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在开发都是前后端分离，在后端接口没有出来之前，使用假数据mock能提高开发效率。现在执行假数据的方法有很多，如mock.js, easymock，json-server。因为接触了node.js，能够捕捉请求并返回数据，所以我尝试给自己写一个简单的假数据服务器。（<a href="https://github.com/guanlinwu/simple-mock" target="_blank" rel="external">完整代码</a>）</p>
+<a id="more"></a>
+<p>用express去尝试做一个吧。</p>
+<p>第一步，翻了下express文档，先看下它如何简单处理请求：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 匹配 /about 路径的请求 see: http://www.expressjs.com.cn/starter/basic-routing.html</span></div><div class="line"><span class="comment">// 对网站首页的访问返回 "Hello World!" 字样</span></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'Hello World!'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 网站首页接受 POST 请求</span></div><div class="line">app.post(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'Got a POST request'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>那我要处理一个地址是  /api/services/app/User/GetUsersList， 请求方式是get或者post 这样的请求，照此类推就是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/api/services/app/User/GetUsersList'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'data'</span>);</div><div class="line">&#125;);</div><div class="line">app.post(<span class="string">'/api/services/app/User/GetUsersList'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'data'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>要处理的假数据请求肯定很多，不可能一个个这样写上去，要构造一个方法，批量处理<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app[method](url, (req, res) =&gt; &#123;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>第二步，因为处理的请求很多，每个请求都有自己的请求方式还有返回的数据，把每个请求定义为一个对象，具有各自的属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">url：            请求地址</div><div class="line">method：         请求方式</div><div class="line">body：           返回的内容</div><div class="line">callbackData:    根据请求的字段，对数据再进行个性化加工的函数</div></pre></td></tr></table></figure></p>
+<p>编写其中一个user.js文件，把每一个请求对象添加到exports上面<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * user.js</div><div class="line"> */</div><div class="line">exports.getUsersList = &#123;</div><div class="line">  <span class="attr">url</span>: <span class="string">'/api/services/app/User/GetUsersList'</span>,</div><div class="line">  <span class="attr">method</span>: <span class="string">'get'</span>,</div><div class="line">  <span class="attr">body</span>: &#123;</div><div class="line">    <span class="attr">data</span>:&#123;</div><div class="line">      <span class="attr">totalPage</span>: <span class="number">100</span>,</div><div class="line">       <span class="attr">usersList</span>: [&#123;</div><div class="line">        <span class="attr">id</span>: <span class="number">1</span>,</div><div class="line">        <span class="attr">number</span>: <span class="string">'0123'</span>,</div><div class="line">        <span class="attr">name</span>: <span class="string">'王小虎'</span>,</div><div class="line">        <span class="attr">phone</span>: <span class="string">'13589980898'</span></div><div class="line">      &#125;]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">message</span>:<span class="string">'获取用户信息成功'</span>,</div><div class="line">    <span class="attr">success</span>:<span class="literal">true</span>,</div><div class="line">    <span class="attr">error</span>:<span class="literal">null</span></div><div class="line">  &#125;,</div><div class="line">  callbackData(data, req, res) &#123;</div><div class="line">    <span class="keyword">let</span> _data = data,</div><div class="line">    <span class="comment">//执行一些操作</span></div><div class="line">    <span class="keyword">return</span> _data;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">exports.getUsersItem ......</div></pre></td></tr></table></figure></p>
+<p>第三步，好的，于是我就构想了下文件目录结构，这样能够模块化处理请求对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- mockJson</div><div class="line">    - index.js //把该目录下的请求模块（user,manage,goods）的请求对象都导出到index的exports里</div><div class="line">    - user.js</div><div class="line">    - manage.js</div><div class="line">    - goods.js</div><div class="line">    ......</div><div class="line"></div><div class="line">- server.js //启动服务器的主函数</div></pre></td></tr></table></figure></p>
+<p>在mockJson的index.js所做的事情就是读取该目录下除了index.js的以外的模块，并把这些模块的请求对象统一添加到index的exports对象里，这里用node去读取该文件夹的内容，统一处理<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">let</span> fileArr = fs.readdirSync(__dirname),</div><div class="line">    newArr = [];</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 读取mockJson目录下除了index以为的文件名</div><div class="line"> */</div><div class="line">fileArr.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;<span class="comment">//fileArr : ['user', 'manage', 'goods']</span></div><div class="line">  <span class="keyword">if</span> (!<span class="regexp">/index/</span>.test(item)) &#123;</div><div class="line">    newArr.push(item.match(<span class="regexp">/(\w+)\./</span>)[<span class="number">1</span>]);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 引入文件，并把各个模块（user， manage等）的请求对象赋值给exports对象</div><div class="line"> */</div><div class="line">newArr.forEach(<span class="function">(<span class="params">filename</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> file = <span class="built_in">require</span>(<span class="string">'./'</span> + filename);</div><div class="line">  <span class="built_in">Object</span>.assign(exports, file);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>最后一步，server.js 读取mockJson的index模块，批量构造请求<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//.....</span></div><div class="line"><span class="keyword">let</span> mockJson = <span class="built_in">require</span>(<span class="string">'./mockJson'</span>);</div><div class="line"></div><div class="line"><span class="comment">//....</span></div><div class="line"></div><div class="line"><span class="comment">// 构造请求</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> mockJson) &#123;</div><div class="line">  <span class="keyword">if</span> (mockJson.hasOwnProperty(key)) &#123;</div><div class="line">    <span class="keyword">let</span> element = mockJson[key];</div><div class="line">    <span class="keyword">let</span> method = element.method,</div><div class="line">       url = element.url,</div><div class="line">       body = element.body;</div><div class="line">    app[method](url, (req, res) =&gt; &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`url<span class="subst">$&#123;url&#125;</span>`</span>);</div><div class="line">      <span class="comment">//如果定义回调函数</span></div><div class="line">      <span class="keyword">if</span> (element.callbackData) &#123;</div><div class="line">        <span class="keyword">let</span> newData = element.callbackData(body, req, res);</div><div class="line">        res.send(<span class="built_in">JSON</span>.stringify(newData));</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        res.send(<span class="built_in">JSON</span>.stringify(body));</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//....</span></div></pre></td></tr></table></figure></p>
+<p>对于分页处理或者根据不同的字段返回不同数据，可以在callbackData这个函数搞定。<br>好了，一个简单的假数据服务器完成了。<br>下载代码运行一下，然后在浏览器输入<a href="http://localhost:5000/api/services/app/User/GetUsersList" target="_blank" rel="external">http://localhost:5000/api/services/app/User/GetUsersList</a><br>会看到：</p>
+<p><img src="/images/mock_1.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/28/自己写一个简单的假数据服务器/" data-id="cj4gg7xt400055ye7zibjrf6h" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/27/Vue自研篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue自研篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/28/自己写一个简单的假数据服务器/">从0开发一个假数据服务器</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/27/Vue自研篇/">Vue自研篇</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/27/React自研篇/">React自研篇</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/26/唯品会项目篇/">唯品会项目篇</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/24/唯品会的专题活动篇/">唯品会的专题活动篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 guanlin.wu<br>
+      <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
