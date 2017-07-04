@@ -136,7 +136,7 @@
   });
 
   //active class
-  let pathname = window.location.pathname,
+  var pathname = window.location.pathname,
     realPathName = pathname.match(/\/(.*)/)[1],
     $pcNav = $('#main-nav .main-nav-link');
     $mobNav = $('#mobile-nav .mobile-nav-link');

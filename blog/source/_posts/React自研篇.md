@@ -70,16 +70,16 @@ Store 就是把 Reducer 和 action 联系到一起的对象
 还没有机会能够用到公司项目中，离职前其实已经在用react去重构唯品会viva产品化项目渲染页了，因为考虑到，通过生成器，每个活动页会生成一堆单一状态的json，然后根据json去构建组件，派发事件，刚刚React+Redux 是最好的实践，单一树状态的单向管理，肯定可以提高项目的渲染效率和体验。
 
 可是我自己自研尝试了下。没有主题地搞了个脚手架和简单页面，不过也基本包含了方方面面。
-小项目（[Github代码](https://github.com/guanlinwu/reduxplatform/tree/v3.0)）涉及的：es6 + React + Redux + React-Router + Sass + Iconfont
+小项目（[前端部分Github代码](https://github.com/guanlinwu/reduxplatform/tree/v3.0/fontend)）涉及的：es6 + React + Redux + React-Router + Sass + Iconfont
 
 项目脚手架一开始是自己用Webpack1搭建的，后来自己升级了Webpack2，再后来参考了官方facebook的create-app脚手架，就把它搬过来了，目录架构是根据实际情况搭的。
 
 目录结构如下：
-![](/images/react_1.png)
+![react](/images/react_1.png)
 
 页面展示：
 
-![](/images/react_4.png)
-![](/images/react_3.png)
-![](/images/react_5.png)
-![](/images/react_2.png)
+![react](/images/react_4.png)
+![react](/images/react_3.png)
+![react](/images/react_5.png)
+![react](/images/react_2.png)

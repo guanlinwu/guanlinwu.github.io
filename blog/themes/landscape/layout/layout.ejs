@@ -10,8 +10,12 @@
         <% } %>
       </div>
       <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+      <div class="particles-box">
+        <canvas id="particles" class="particles-canvas"></canvas>
+      </div>
     </div>
     <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+
     <%- partial('_partial/after-footer') %>
   </div>
 </body>
