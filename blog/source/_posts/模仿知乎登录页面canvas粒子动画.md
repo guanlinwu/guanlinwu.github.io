@@ -8,6 +8,7 @@ tags: [javascript]
 
 ![模仿知乎登录背景效果](/images/zhihu_1.gif)
 
+<!--more-->
 ## 技术
 canvas
 
