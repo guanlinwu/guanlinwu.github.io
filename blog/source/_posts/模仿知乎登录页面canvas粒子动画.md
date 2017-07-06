@@ -1,7 +1,7 @@
 ---
 title: 模仿知乎登录页面canvas粒子动画
 date: 2017-07-04 09:52:26
-tags: [javascript]
+tags: [JavaScript]
 ---
 最近给自己的github pages 搞一个动画，想到了知乎登录背景的粒子效果，于是模仿着用es6写一个，放在自己github pages 的banner上。
 先上图。

@@ -19,7 +19,7 @@ Css常用集合代码片段（不断更新收集）
 /*去掉select外形*/
 {-webkit-appearance: none;border: none;outline:none;}
 
-/*1px 细线*/
+/*1px 细线 方法之一*/
 .line{ content:""; position: absolute; top: 0; left:0; right:0; border-top:1px solid #c8c7cc; -webkit-transform:scaleY(.5); -webkit-transform-origin:0 0; pointer-events:none;}
 
 /*背景斜线*/
