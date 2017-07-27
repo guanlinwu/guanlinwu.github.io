@@ -65,6 +65,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript基础笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/25/JavaScript基础笔记/" class="article-date">
+  <time datetime="2017-07-25T02:20:26.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/25/JavaScript基础笔记/">JavaScript易漏基础笔记（不断学习不断更新）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近一段时间在重温JavaScript基础，温故而知新，记录下一些容易漏掉的细节。</p>
+<h1 id="一-对象"><a href="#一-对象" class="headerlink" title="一 对象"></a>一 对象</h1><h3 id="hasOwnProperty-："><a href="#hasOwnProperty-：" class="headerlink" title="hasOwnProperty()："></a>hasOwnProperty()：</h3><p>如果in判断一个属性存在，这个属性不一定是改实例的，它可能是该实例继承得到的；<br>要判断一个属性是否是自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'xxx'</span></div><div class="line">&#125;;</div><div class="line">obj.hasOwnProperty(<span class="string">'name'</span>); <span class="comment">// true</span></div><div class="line">obj.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// false</span></div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2017/07/25/JavaScript基础笔记/#more">阅读全文  🤔</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/25/JavaScript基础笔记/" data-id="cj5iyfmlk0003x9e7o7ciz80w" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript数据类型和类型检测" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/06/javascript数据类型和类型检测/" class="article-date">
@@ -97,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cj4s5cyg200004ae7iqb7szhp" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cj5iyfmln0005x9e721flayfm" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -141,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/" data-id="cj4s5cygv000b4ae7r2a1u9hj" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/" data-id="cj5iyfmlw000bx9e7gwoqxn1z" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -184,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/03/Css常用集合（不断更新收集）/" data-id="cj4s5cygc00034ae7ekpf8xwt" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/03/Css常用集合（不断更新收集）/" data-id="cj5iyfml90000x9e7erxtc7e0" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/">Css</a></li></ul>
@@ -227,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/28/自己写一个简单的假数据服务器/" data-id="cj4s5cygu00094ae7d4sxmefy" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/28/自己写一个简单的假数据服务器/" data-id="cj5iyfmlw000cx9e74hnqyx5x" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li></ul>
@@ -270,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/Vue自研篇/" data-id="cj4s5cygh00054ae7tn7q84ss" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/Vue自研篇/" data-id="cj5iyfmll0004x9e7pxvz0bzr" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -314,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/React自研篇/" data-id="cj4s5cyg700014ae749afmsof" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/React自研篇/" data-id="cj5iyfmle0001x9e7721k8iym" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -357,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/26/唯品会项目篇/" data-id="cj4s5cygk00084ae7mw05cvnj" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/26/唯品会项目篇/" data-id="cj5iyfmlq0008x9e7fjey6dsc" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -401,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/24/唯品会的专题活动篇/" data-id="cj4s5cygd00044ae7d0fdg35k" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/24/唯品会的专题活动篇/" data-id="cj5iyfmls0009x9e7yl54f9ob" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li></ul>
@@ -435,7 +480,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+      <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 15px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
     </div>
   </div>
 
@@ -457,6 +502,10 @@
       <ul>
         
           <li>
+            <a href="/2017/07/25/JavaScript基础笔记/">JavaScript易漏基础笔记（不断学习不断更新）</a>
+          </li>
+        
+          <li>
             <a href="/2017/07/06/javascript数据类型和类型检测/">JavaScript数据类型和类型检测</a>
           </li>
         
@@ -470,10 +519,6 @@
         
           <li>
             <a href="/2017/06/28/自己写一个简单的假数据服务器/">从0开发一个假数据服务器</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/27/Vue自研篇/">Vue自研篇</a>
           </li>
         
       </ul>
