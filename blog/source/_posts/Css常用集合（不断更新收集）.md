@@ -69,4 +69,7 @@ Css常用集合代码片段（不断更新收集）
 }
 
 z-index: -1; ！！
+
+/*改变input 光标颜色*/
+caret-color: red;
 ```
