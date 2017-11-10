@@ -1,6 +1,6 @@
 ---
 title: ionic3与angular4做App之坑
-date: 2017-09-01 09:25:38
+date: 2017-09-01
 tags: [项目, Angular]
 ---
 最近用ionic3和angular4做一个App，涉及的知识比较多，也上手了typescript。下面记录下遇到的坑。
