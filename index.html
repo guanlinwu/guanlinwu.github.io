@@ -65,6 +65,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ionic3与angular4做App之坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/01/ionic3与angular4做App之坑/" class="article-date">
+  <time datetime="2017-09-01T01:25:38.000Z" itemprop="datePublished">2017-09-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/01/ionic3与angular4做App之坑/">ionic3与angular4做App之坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近用ionic3和angular4做一个App，涉及的知识比较多，也上手了typescript。下面记录下遇到的坑。</p>
+<h2 id="用angular的ngClass切换class时，在iPhone上点击会闪烁"><a href="#用angular的ngClass切换class时，在iPhone上点击会闪烁" class="headerlink" title="用angular的ngClass切换class时，在iPhone上点击会闪烁"></a>用angular的ngClass切换class时，在iPhone上点击会闪烁</h2><p>这个class是控制页面是否能够滚动的，就是一个样式overflow： hidden。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-content</span> [<span class="attr">ngClass</span>]=<span class="string">"&#123;'f-no-scroll': isShowMenu&#125;"</span>&gt;</span></div><div class="line">······</div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"menu"</span> <span class="attr">ion-button</span> <span class="attr">clear</span> <span class="attr">tappable</span> (<span class="attr">click</span>)=<span class="string">"toggleMenu($event)"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"menu"</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.f-no-scroll</span> &#123;</div><div class="line">  <span class="selector-class">.scroll-content</span> &#123;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在浏览器上是不会闪的，没想到在app上面，点击按钮显示菜单的时候，竟然会闪烁，把[ngClass]=”{‘f-no-scroll’: isShowMenu}”这段去掉后，就不闪烁了，应该是设置overflow的时候，导致了重排reflow。<br>
+        
+          <p class="article-more-link">
+            <a href="/2017/09/01/ionic3与angular4做App之坑/#more">阅读全文  🤔</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2017/09/01/ionic3与angular4做App之坑/" data-id="cj9tq0kkb0005yoe7plv4wrp9" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript基础笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/25/JavaScript基础笔记/" class="article-date">
@@ -98,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/25/JavaScript基础笔记/" data-id="cj5iyfmlk0003x9e7o7ciz80w" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/25/JavaScript基础笔记/" data-id="cj9tq0kk60003yoe7lklcazso" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -142,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cj5iyfmln0005x9e721flayfm" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cj9tq0kke0008yoe7vnnkk9pr" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -186,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/" data-id="cj5iyfmlw000bx9e7gwoqxn1z" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/" data-id="cj9tq0kkn000cyoe7aohontot" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -229,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/03/Css常用集合（不断更新收集）/" data-id="cj5iyfml90000x9e7erxtc7e0" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/03/Css常用集合（不断更新收集）/" data-id="cj9tq0kju0000yoe7hszy97c7" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/">Css</a></li></ul>
@@ -272,7 +316,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/28/自己写一个简单的假数据服务器/" data-id="cj5iyfmlw000cx9e74hnqyx5x" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/28/自己写一个简单的假数据服务器/" data-id="cj9tq0kkq000eyoe7g2ko7qr7" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li></ul>
@@ -315,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/Vue自研篇/" data-id="cj5iyfmll0004x9e7pxvz0bzr" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/Vue自研篇/" data-id="cj9tq0kk80004yoe790g9e2oj" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -359,7 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/React自研篇/" data-id="cj5iyfmle0001x9e7721k8iym" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/React自研篇/" data-id="cj9tq0kjz0001yoe7lgqfoc0m" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -402,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/26/唯品会项目篇/" data-id="cj5iyfmlq0008x9e7fjey6dsc" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/26/唯品会项目篇/" data-id="cj9tq0kkm000byoe79t0sohwi" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -446,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/24/唯品会的专题活动篇/" data-id="cj5iyfmls0009x9e7yl54f9ob" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/24/唯品会的专题活动篇/" data-id="cj9tq0kkh0009yoe7asoiwye8" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li></ul>
@@ -489,7 +533,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
     </div>
   </div>
 
@@ -500,6 +544,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/09/01/ionic3与angular4做App之坑/">ionic3与angular4做App之坑</a>
+          </li>
         
           <li>
             <a href="/2017/07/25/JavaScript基础笔记/">JavaScript易漏基础笔记（不断学习不断更新）</a>
@@ -515,10 +563,6 @@
         
           <li>
             <a href="/2017/07/03/Css常用集合（不断更新收集）/">Css常用集合（不断更新收集）</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/28/自己写一个简单的假数据服务器/">从0开发一个假数据服务器</a>
           </li>
         
       </ul>
