@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>模仿知乎登录页面canvas粒子动画 | guanlinwu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近给自己的github pages 搞一个动画，想到了知乎登录背景的粒子效果，于是模仿着用es6写一个，放在自己github pages 的banner上。先上图。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模仿知乎登录页面canvas粒子动画">
+<meta property="og:url" content="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/index.html">
+<meta property="og:site_name" content="guanlinwu">
+<meta property="og:description" content="最近给自己的github pages 搞一个动画，想到了知乎登录背景的粒子效果，于是模仿着用es6写一个，放在自己github pages 的banner上。先上图。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://guanlinwu.github.io/images/zhihu_1.gif">
+<meta property="og:updated_time" content="2017-07-04T13:39:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模仿知乎登录页面canvas粒子动画">
+<meta name="twitter:description" content="最近给自己的github pages 搞一个动画，想到了知乎登录背景的粒子效果，于是模仿着用es6写一个，放在自己github pages 的banner上。先上图。">
+<meta name="twitter:image" content="https://guanlinwu.github.io/images/zhihu_1.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="guanlinwu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <!--<a href="/" id="logo">guanlinwu</a>-->
+        <a href="javascript:;" id="logo">努力走向全栈-学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <!--<nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guanlinwu.github.io"></form>
+      </div>-->
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-模仿知乎登录页面canvas粒子动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/04/模仿知乎登录页面canvas粒子动画/" class="article-date">
+  <time datetime="2017-07-04T01:52:26.000Z" itemprop="datePublished">2017-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      模仿知乎登录页面canvas粒子动画
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近给自己的github pages 搞一个动画，想到了知乎登录背景的粒子效果，于是模仿着用es6写一个，放在自己github pages 的banner上。<br>先上图。</p>
+<p><img src="/images/zhihu_1.gif" alt="模仿知乎登录背景效果"></p>
+<a id="more"></a>
+<h2 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h2><p>canvas</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
+<li>每一个圆都是一个构造函数的实例，都有自己的属性和函数,然后创建一定数量的圆实例对象<ul>
+<li>属性：<ul>
+<li>圆的中心的 x 坐标</li>
+<li>圆的中心的 y 坐标</li>
+<li>圆的半径r</li>
+<li>x 方向的移动速度</li>
+<li>y 方向的移动速度</li>
+</ul>
+</li>
+<li>函数<ul>
+<li>构造函数</li>
+<li>画圆函数</li>
+<li>画直线函数</li>
+<li>移动函数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>画圆和直线。每个圆实例对象都调用画圆函数，在canvas上画出圆点，然后调用画直线函数，通过循环，判断圆与圆之间的距离，符合距离的就在圆心与圆心之间画直线</p>
+</li>
+<li><p>移动。有了圆心x，y坐标位置和每个方向的速度，就可以每帧去移动x，y坐标的位置。</p>
+</li>
+<li><p>每帧更新。</p>
+</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点的数量</span></span><br><span class="line"><span class="keyword">const</span> POINTNUM = <span class="number">70</span>;</span><br><span class="line"><span class="comment">//获取常规变量</span></span><br><span class="line"><span class="keyword">let</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'particles'</span>),</span><br><span class="line">    ctx = canvas.getContext(<span class="string">'2d'</span>),</span><br><span class="line">    cwidth = canvas.width = canvas.offsetWidth,</span><br><span class="line">    cheight = canvas.height = canvas.offsetHeight,</span><br><span class="line">    circles = [];</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.requestAnimFrame = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span>  <span class="built_in">window</span>.requestAnimationFrame       ||</span><br><span class="line">          <span class="built_in">window</span>.webkitRequestAnimationFrame ||</span><br><span class="line">          <span class="built_in">window</span>.mozRequestAnimationFrame    ||</span><br><span class="line">          <span class="function"><span class="keyword">function</span>(<span class="params"> callback </span>)</span>&#123;</span><br><span class="line">            <span class="built_in">window</span>.setTimeout(callback, <span class="number">1000</span> / <span class="number">60</span>);</span><br><span class="line">          &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置圆的填充颜色和线条颜色</span></span><br><span class="line">ctx.fillStyle = <span class="string">'rgba(0, 0, 255, 0.5)'</span>;</span><br><span class="line">ctx.strokeStyle = <span class="string">'rgba(0, 0, 255, 0.1)'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成start ～ end随机数</span></span><br><span class="line"><span class="keyword">const</span> random = <span class="function"><span class="keyword">function</span>(<span class="params">start, end</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        end = start;</span><br><span class="line">        start = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (end - start + <span class="number">1</span>) + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每个圆的构造函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 构造函数</span></span><br><span class="line">  <span class="keyword">constructor</span> (x, y) &#123;</span><br><span class="line">    <span class="keyword">this</span>.x = x;</span><br><span class="line">    <span class="keyword">this</span>.y = y;</span><br><span class="line">    <span class="keyword">this</span>.r = random(<span class="number">0.5</span>, <span class="number">10</span>);</span><br><span class="line">    <span class="keyword">this</span>.vx = random(<span class="number">2</span>) - <span class="number">1.5</span> || <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.vy = random(<span class="number">2</span>) - <span class="number">1.5</span> || <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//画圆</span></span><br><span class="line">  drawCircle () &#123;</span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx.arc(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y, <span class="keyword">this</span>.r, <span class="number">0</span>, <span class="number">360</span>);</span><br><span class="line">    ctx.closePath();</span><br><span class="line">    ctx.fill();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 判断该圆与传入的圆之间的距离，然后在一定距离的话就画直线</span></span><br><span class="line">  drawLine (nextCircle) &#123;</span><br><span class="line">    <span class="keyword">let</span> dx = <span class="keyword">this</span>.x - nextCircle.x,</span><br><span class="line">        dy = <span class="keyword">this</span>.y - nextCircle.y,</span><br><span class="line">        distance = <span class="built_in">Math</span>.sqrt(dx * dx + dy * dy);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (distance &lt; <span class="number">200</span>) &#123;</span><br><span class="line">        ctx.beginPath();</span><br><span class="line">        ctx.moveTo(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y);</span><br><span class="line">        ctx.lineTo(nextCircle.x, nextCircle.y);</span><br><span class="line">        ctx.closePath();</span><br><span class="line">        ctx.stroke();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 移动</span></span><br><span class="line">  move (w, h) &#123;</span><br><span class="line">    <span class="comment">// this.vx = (this.x &lt; w &amp;&amp; this.x &gt; 0) ? this.vx: ( - this.vx);</span></span><br><span class="line">    <span class="comment">// this.vy = (this.y &lt; h &amp;&amp; this.y &gt; 0) ? this.vy: ( - this.vy);</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 这里可以优化</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.vx &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.vx = (<span class="keyword">this</span>.x + <span class="keyword">this</span>.r &lt; w) ? <span class="keyword">this</span>.vx: ( - <span class="keyword">this</span>.vx);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.vx = (<span class="keyword">this</span>.x &lt; <span class="keyword">this</span>.r) ? ( - <span class="keyword">this</span>.vx) : <span class="keyword">this</span>.vx;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.vy &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.vy = (<span class="keyword">this</span>.y + <span class="keyword">this</span>.r &lt; h) ? <span class="keyword">this</span>.vy: ( - <span class="keyword">this</span>.vy);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.vy = (<span class="keyword">this</span>.y &lt; <span class="keyword">this</span>.r) ? ( - <span class="keyword">this</span>.vy) : <span class="keyword">this</span>.vy;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.x += <span class="keyword">this</span>.vx/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">this</span>.y += <span class="keyword">this</span>.vy/<span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">const</span> init = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;POINTNUM; i++) &#123;</span><br><span class="line">    circles.push(<span class="keyword">new</span> Circle(random(cwidth), random(cheight)))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  draw();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//每帧绘制</span></span><br><span class="line"><span class="keyword">const</span> draw = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, cwidth, cheight);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;POINTNUM; i++) &#123;</span><br><span class="line">        circles[i].move(cwidth, cheight);</span><br><span class="line">        circles[i].drawCircle();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j=i + <span class="number">1</span>; j&lt;POINTNUM; j++) &#123;</span><br><span class="line">            circles[i].drawLine(circles[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    requestAnimationFrame(draw);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在window加载完后执行</span></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  init();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!--more-->
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/" data-id="cj9tvi9l2000e2se7ivi85u7c" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/06/javascript数据类型和类型检测/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript数据类型和类型检测
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/03/Css常用集合（不断更新收集）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Css常用集合（不断更新收集）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/01/ionic3与angular4做App之坑/">ionic3与angular4做App之坑</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/25/JavaScript基础笔记/">JavaScript易漏基础笔记（不断学习不断更新）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/06/javascript数据类型和类型检测/">JavaScript数据类型和类型检测</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/04/模仿知乎登录页面canvas粒子动画/">模仿知乎登录页面canvas粒子动画</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/03/Css常用集合（不断更新收集）/">Css常用集合（不断更新收集）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 guanlin.wu<br>
+      <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
+    </div>
+  </div>
+</footer>
+      <div class="particles-box">
+        <canvas id="particles" class="particles-canvas"></canvas>
+      </div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+
+    
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/particles.js"></script>
+  </div>
+</body>
+</html>
