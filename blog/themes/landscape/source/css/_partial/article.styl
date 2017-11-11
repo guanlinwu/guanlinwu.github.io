@@ -11,12 +11,13 @@
 .article-date
   @extend $block-caption
   float: left
+  font-weight: 300
+  letter-spacing: 1px;
 
 .article-category
   float: left
   line-height: 1em
-  color: #ccc
-  text-shadow: 0 1px #fff
+  color: #000
   margin-left: 8px
   &:before
     content: "\2022"
@@ -126,6 +127,7 @@
   line-height: 1em
   padding: 6px 15px
   border-radius: 15px
+  border: 1px solid color-grey
   background: color-background
   color: color-grey
   text-shadow: 0 1px #fff
@@ -134,7 +136,14 @@
     background: color-link
     color: #fff
     text-decoration: none
+    border: 1px solid color-link
     text-shadow: 0 1px darken(color-link, 20%)
+  @media mq-mobile
+    &:hover
+      background: color-background
+      color: color-grey
+      text-shadow: 0 1px #fff
+      border: 1px solid color-grey
 
 .article-footer
   clearfix()

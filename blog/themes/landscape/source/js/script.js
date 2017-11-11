@@ -134,4 +134,20 @@
 
     $container.removeClass('mobile-nav-on');
   });
+
+  //active class
+  var pathname = window.location.pathname,
+    realPathName = pathname.match(/\/(.*)/)[1],
+    $pcNav = $('#main-nav .main-nav-link');
+    $mobNav = $('#mobile-nav .mobile-nav-link');
+  switch (true) {
+    case /archives/.test(realPathName) :
+        $pcNav.eq(1).addClass('active');
+        $mobNav.eq(1).addClass('active');
+        break;
+    default:
+        $pcNav.eq(0).addClass('active');
+        $mobNav.eq(0).addClass('active');
+        break;
+  }
 })(jQuery);

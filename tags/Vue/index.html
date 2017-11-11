@@ -80,9 +80,11 @@
     <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
-      <a href="/2017/06/27/Vue自研篇/" class="archive-article-date">
-  <time datetime="2017-06-27T15:51:50.000Z" itemprop="datePublished">6月 27</time>
-</a>
+      {% if page.date %}
+    <a href="/2017/06/27/Vue自研篇/" class="archive-article-date">
+        <time datetime="2017-06-27T15:51:50.000Z" itemprop="datePublished">6月 27</time>
+    </a>
+{% endif %}
       
   
     <h1 itemprop="name">

@@ -25,10 +25,17 @@ input, button
 html, body, #container
   height: 100%
 
+*
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+    -webkit-tap-highlight-color:transparent
+
+
 body
   background: color-background
   font: font-size font-sans
   -webkit-text-size-adjust: 100%
+  @media mq-mobile
+    -webkit-user-select: none;
 
 .outer
   clearfix()
@@ -66,6 +73,7 @@ body
   .mobile-nav-on &
     left: mobile-nav-width
 
+
 if sidebar and sidebar isnt bottom
   #main
     @media mq-normal
@@ -84,6 +92,7 @@ if sidebar is left
 @import "_partial/footer"
 @import "_partial/highlight"
 @import "_partial/mobile"
+@import "_partial/canvas"
 
 if sidebar
   @import "_partial/sidebar"
