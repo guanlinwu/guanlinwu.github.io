@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ionic3与angular4做App之坑 | guanlinwu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近用ionic3和angular4做一个App，涉及的知识比较多，也上手了typescript。下面记录下遇到的坑。 用angular的ngClass切换class时，在iPhone上点击会闪烁这个class是控制页面是否能够滚动的，就是一个样式overflow： hidden。12345&amp;lt;ion-content [ngClass]=&quot;&amp;#123;&apos;f-no-scroll&apos;: isShow">
+<meta name="keywords" content="项目,Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ionic3与angular4做App之坑">
+<meta property="og:url" content="https://guanlinwu.github.io/2017/09/01/ionic3与angular4做App之坑/index.html">
+<meta property="og:site_name" content="guanlinwu">
+<meta property="og:description" content="最近用ionic3和angular4做一个App，涉及的知识比较多，也上手了typescript。下面记录下遇到的坑。 用angular的ngClass切换class时，在iPhone上点击会闪烁这个class是控制页面是否能够滚动的，就是一个样式overflow： hidden。12345&amp;lt;ion-content [ngClass]=&quot;&amp;#123;&apos;f-no-scroll&apos;: isShow">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-10T11:59:32.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ionic3与angular4做App之坑">
+<meta name="twitter:description" content="最近用ionic3和angular4做一个App，涉及的知识比较多，也上手了typescript。下面记录下遇到的坑。 用angular的ngClass切换class时，在iPhone上点击会闪烁这个class是控制页面是否能够滚动的，就是一个样式overflow： hidden。12345&amp;lt;ion-content [ngClass]=&quot;&amp;#123;&apos;f-no-scroll&apos;: isShow">
+  
+    <link rel="alternate" href="/atom.xml" title="guanlinwu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <!--<a href="/" id="logo">guanlinwu</a>-->
+        <a href="javascript:;" id="logo">努力走向全栈-学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <!--<nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guanlinwu.github.io"></form>
+      </div>-->
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ionic3与angular4做App之坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/01/ionic3与angular4做App之坑/" class="article-date">
+  <time datetime="2017-09-01T01:25:38.000Z" itemprop="datePublished">2017-09-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ionic3与angular4做App之坑
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近用ionic3和angular4做一个App，涉及的知识比较多，也上手了typescript。下面记录下遇到的坑。</p>
+<h2 id="用angular的ngClass切换class时，在iPhone上点击会闪烁"><a href="#用angular的ngClass切换class时，在iPhone上点击会闪烁" class="headerlink" title="用angular的ngClass切换class时，在iPhone上点击会闪烁"></a>用angular的ngClass切换class时，在iPhone上点击会闪烁</h2><p>这个class是控制页面是否能够滚动的，就是一个样式overflow： hidden。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-content</span> [<span class="attr">ngClass</span>]=<span class="string">"&#123;'f-no-scroll': isShowMenu&#125;"</span>&gt;</span></div><div class="line">······</div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"menu"</span> <span class="attr">ion-button</span> <span class="attr">clear</span> <span class="attr">tappable</span> (<span class="attr">click</span>)=<span class="string">"toggleMenu($event)"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"menu"</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.f-no-scroll</span> &#123;</div><div class="line">  <span class="selector-class">.scroll-content</span> &#123;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在浏览器上是不会闪的，没想到在app上面，点击按钮显示菜单的时候，竟然会闪烁，把[ngClass]=”{‘f-no-scroll’: isShowMenu}”这段去掉后，就不闪烁了，应该是设置overflow的时候，导致了重排reflow。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">什么时候会导致reflow发生呢？ 参考@see http://caibaojian.com/css-reflow-repaint.html</div><div class="line"></div><div class="line">-改变窗口大小</div><div class="line">-改变文字大小</div><div class="line">-添加/删除样式表</div><div class="line">-内容的改变，(用户在输入框中写入内容也会)</div><div class="line">-激活伪类，如:hover</div><div class="line">-操作class属性</div><div class="line">-脚本操作DOM</div><div class="line">-计算offsetWidth和offsetHeight</div><div class="line">-设置style属性</div><div class="line">-常见的重排元素</div><div class="line">width	height	padding	margin</div><div class="line">display	border-width	border	top</div><div class="line">position	font-size	float	text-align</div><div class="line">overflow-y	font-weight	overflow	left</div><div class="line">font-family	line-height	vertical-align	right</div><div class="line">clear	white-space	bottom	min-height</div></pre></td></tr></table></figure></p>
+<p>所以灵机一动，想到了用js去控制吧，又不影响css，那就是把touchmove事件的默认行为取消掉就行了。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 有bug，在app下切换class竟然会闪</div><div class="line"> * 所以用js来控制，当菜单弹出的时候，阻止手势滑动事件的默认行为</div><div class="line"> *</div><div class="line"> * @param &#123;any&#125; event</div><div class="line"> * @memberof MakeProfilePage</div><div class="line"> */</div><div class="line">stopScroll (event: <span class="built_in">any</span>) &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.isShowMenu &amp;&amp; event &amp;&amp; event.preventDefault) &#123;</div><div class="line">    event.preventDefault();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="click事件点击一次会触发两次bug"><a href="#click事件点击一次会触发两次bug" class="headerlink" title="click事件点击一次会触发两次bug"></a>click事件点击一次会触发两次bug</h2><p>这是因为调用了两次IonicModule.forRoot，会导致重复绑定。当时因为组件化，组件是需要引用到IonicModule的标签，所以在components.modules.ts用了IonicModule.forRoot(TutorialComponent)。<br>解决方法： 把IonicModule.forRoot(TutorialComponent)，改为把IonicModule就行。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//components.modules.ts</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; IonicModule &#125; <span class="keyword">from</span> <span class="string">'ionic-angular'</span>;</div><div class="line"><span class="keyword">import</span> &#123; TutorialComponent &#125; <span class="keyword">from</span> <span class="string">'./tutorial/tutorial'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">	declarations: [TutorialComponent],</div><div class="line">	imports: [IonicModule.forRoot(TutorialComponent)],<span class="comment">/** 此处遇到坑，如果组件中用到ionic的组件，要加上 IonicModule.forRoot */</span></div><div class="line">	exports: [TutorialComponent]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> ComponentsModule &#123;&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//app.modules.ts</span></div><div class="line">...</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">...</div><div class="line">  imports: [</div><div class="line">    BrowserModule,</div><div class="line">    IonicModule.forRoot(MyApp),</div><div class="line">    IonicStorageModule.forRoot(),</div><div class="line">    ComponentsModule</div><div class="line">  ],</div><div class="line">...</div><div class="line">&#125;)</div><div class="line">...</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2017/09/01/ionic3与angular4做App之坑/" data-id="cj9tryxxv0005hse74jamvqex" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/25/JavaScript基础笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript易漏基础笔记（不断学习不断更新）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/01/ionic3与angular4做App之坑/">ionic3与angular4做App之坑</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/25/JavaScript基础笔记/">JavaScript易漏基础笔记（不断学习不断更新）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/06/javascript数据类型和类型检测/">JavaScript数据类型和类型检测</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/04/模仿知乎登录页面canvas粒子动画/">模仿知乎登录页面canvas粒子动画</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/03/Css常用集合（不断更新收集）/">Css常用集合（不断更新收集）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 guanlin.wu<br>
+      <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
+    </div>
+  </div>
+</footer>
+      <div class="particles-box">
+        <canvas id="particles" class="particles-canvas"></canvas>
+      </div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+
+    
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/particles.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript数据类型和类型检测 | guanlinwu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript数据类型分为基本类型和引用类型基本类型包括：NumberStringBooleanNullUndefinedSymbol (es6) 引用类型：Object">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数据类型和类型检测">
+<meta property="og:url" content="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/index.html">
+<meta property="og:site_name" content="guanlinwu">
+<meta property="og:description" content="JavaScript数据类型分为基本类型和引用类型基本类型包括：NumberStringBooleanNullUndefinedSymbol (es6) 引用类型：Object">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-06T08:04:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript数据类型和类型检测">
+<meta name="twitter:description" content="JavaScript数据类型分为基本类型和引用类型基本类型包括：NumberStringBooleanNullUndefinedSymbol (es6) 引用类型：Object">
+  
+    <link rel="alternate" href="/atom.xml" title="guanlinwu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <!--<a href="/" id="logo">guanlinwu</a>-->
+        <a href="javascript:;" id="logo">努力走向全栈-学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <!--<nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guanlinwu.github.io"></form>
+      </div>-->
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript数据类型和类型检测" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/06/javascript数据类型和类型检测/" class="article-date">
+  <time datetime="2017-07-06T07:35:27.000Z" itemprop="datePublished">2017-07-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript数据类型和类型检测
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaScript数据类型分为基本类型和引用类型"><a href="#JavaScript数据类型分为基本类型和引用类型" class="headerlink" title="JavaScript数据类型分为基本类型和引用类型"></a>JavaScript数据类型分为基本类型和引用类型</h2><p>基本类型包括：<br>Number<br>String<br>Boolean<br>Null<br>Undefined<br>Symbol (es6)</p>
+<p>引用类型：<br>Object</p>
+<a id="more"></a>
+<h2 id="等号判断"><a href="#等号判断" class="headerlink" title="等号判断"></a>等号判断</h2><ul>
+<li><p>== 判断</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">'1.23'</span> == <span class="number">1.23</span></div><div class="line"><span class="number">0</span> == <span class="literal">false</span></div><div class="line"><span class="literal">null</span> == <span class="literal">undefined</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Object</span>() == <span class="keyword">new</span> <span class="built_in">Object</span>()</div></pre></td></tr></table></figure>
+</li>
+<li><p>=== 判断</p>
+<ul>
+<li>类型不同，返回false</li>
+<li>类型相同<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="literal">NaN</span> ≠ <span class="literal">NaN</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Object</span> ≠ <span class="keyword">new</span> <span class="built_in">Object</span></div><div class="line"><span class="literal">null</span> === <span class="literal">null</span></div><div class="line"><span class="literal">undefined</span> === <span class="literal">undefined</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="类型检测"><a href="#类型检测" class="headerlink" title="类型检测"></a>类型检测</h2><p>类型检测常用的方法有 typeof、instanceof、Object.prototype.toString</p>
+<h3 id="typeof-适合基本类型及function检测，遇到null失效"><a href="#typeof-适合基本类型及function检测，遇到null失效" class="headerlink" title="typeof 适合基本类型及function检测，遇到null失效"></a>typeof 适合基本类型及function检测，遇到null失效</h3><p>typeof 能检测出的值为 number、boolean、string、function、object、undefined</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="number">100</span> === <span class="string">'number'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span> === <span class="string">'boolean'</span></div><div class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125; === <span class="string">'function'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> === <span class="string">'undefined'</span></div><div class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Object</span>() === <span class="string">'object'</span></div><div class="line"><span class="keyword">typeof</span> [<span class="number">1</span>， <span class="number">2</span>]  === <span class="string">'object'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span> === <span class="string">'number'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span> === <span class="string">'object'</span></div></pre></td></tr></table></figure>
+<p>要检测Object的具体类型，可以用instanceof</p>
+<h3 id="instanceof-适合自定义对象，也可以用来检测原生对象"><a href="#instanceof-适合自定义对象，也可以用来检测原生对象" class="headerlink" title="instanceof 适合自定义对象，也可以用来检测原生对象"></a>instanceof 适合自定义对象，也可以用来检测原生对象</h3><h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString"></a>Object.prototype.toString</h3><p>通过{}.toString拿到，适合内置对象和基元类型，遇到null和undefined失效(IE678等返回[object Object])</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.prototype.toString.apply([]); === <span class="string">'[object Array]'</span>;</div><div class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); === <span class="string">'[object Function]'</span>;</div><div class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="literal">null</span>); === <span class="string">'[object Null]'</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="literal">undefined</span>); === <span class="string">'[object Undefined]'</span></div><div class="line"></div><div class="line"><span class="comment">//IE6/7/8 Object.prototype.toString.apply(null) 返回”[object Object]”</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cj9tryxxz0008hse7f2o18t60" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/25/JavaScript基础笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript易漏基础笔记（不断学习不断更新）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/04/模仿知乎登录页面canvas粒子动画/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">模仿知乎登录页面canvas粒子动画</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/01/ionic3与angular4做App之坑/">ionic3与angular4做App之坑</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/25/JavaScript基础笔记/">JavaScript易漏基础笔记（不断学习不断更新）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/06/javascript数据类型和类型检测/">JavaScript数据类型和类型检测</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/04/模仿知乎登录页面canvas粒子动画/">模仿知乎登录页面canvas粒子动画</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/03/Css常用集合（不断更新收集）/">Css常用集合（不断更新收集）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 guanlin.wu<br>
+      <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
+    </div>
+  </div>
+</footer>
+      <div class="particles-box">
+        <canvas id="particles" class="particles-canvas"></canvas>
+      </div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+
+    
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/particles.js"></script>
+  </div>
+</body>
+</html>
