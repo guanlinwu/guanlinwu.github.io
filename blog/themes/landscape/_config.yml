@@ -1,11 +1,11 @@
 # Header
 menu:
-  主页: /
-  归档: /archives
+  Home: /
+  Archives: /archives
 rss: /atom.xml
 
 # Content
-excerpt_link: 阅读全文  🤔
+excerpt_link: Read More
 fancybox: true
 
 # Sidebar
@@ -29,9 +29,8 @@ show_count: false
 
 # Miscellaneous
 google_analytics:
-favicon: /favicon.ico
+favicon: /favicon.png
 twitter:
 google_plus:
 fb_admins:
 fb_app_id:
-
