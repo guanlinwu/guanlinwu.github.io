@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>唯品会的专题活动篇 | guanlinwu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;刚进唯品会的时候，是专门做专题和活动H5页面，这是一件看起来很基础的工作，就是切图和重构，还有加上一些简单javascript逻辑，css动画，可是这，让我学到了很多基础知识和一些奇门技巧和遇到了一些不知名的坑（1px，弹窗滚动，背景固定兼容，元素平均分配溢出······） 现在回忆比较有代表性的专题活动页面。">
+<meta name="keywords" content="工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="唯品会的专题活动篇">
+<meta property="og:url" content="https://guanlinwu.github.io/2017/06/24/唯品会的专题活动篇/index.html">
+<meta property="og:site_name" content="guanlinwu">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;刚进唯品会的时候，是专门做专题和活动H5页面，这是一件看起来很基础的工作，就是切图和重构，还有加上一些简单javascript逻辑，css动画，可是这，让我学到了很多基础知识和一些奇门技巧和遇到了一些不知名的坑（1px，弹窗滚动，背景固定兼容，元素平均分配溢出······） 现在回忆比较有代表性的专题活动页面。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://guanlinwu.github.io/images/419.png">
+<meta property="og:image" content="https://guanlinwu.github.io/images/419.gif">
+<meta property="og:image" content="https://guanlinwu.github.io/images/guimi.png">
+<meta property="og:updated_time" content="2017-11-10T10:46:15.809Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="唯品会的专题活动篇">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;刚进唯品会的时候，是专门做专题和活动H5页面，这是一件看起来很基础的工作，就是切图和重构，还有加上一些简单javascript逻辑，css动画，可是这，让我学到了很多基础知识和一些奇门技巧和遇到了一些不知名的坑（1px，弹窗滚动，背景固定兼容，元素平均分配溢出······） 现在回忆比较有代表性的专题活动页面。">
+<meta name="twitter:image" content="https://guanlinwu.github.io/images/419.png">
+  
+    <link rel="alternate" href="/atom.xml" title="guanlinwu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <!--<a href="/" id="logo">guanlinwu</a>-->
+        <a href="javascript:;" id="logo">努力走向全栈-学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <!--<nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guanlinwu.github.io"></form>
+      </div>-->
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-唯品会的专题活动篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/24/唯品会的专题活动篇/" class="article-date">
+  <time datetime="2017-06-24T08:16:41.000Z" itemprop="datePublished">2017-06-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      唯品会的专题活动篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;刚进唯品会的时候，是专门做专题和活动H5页面，这是一件看起来很基础的工作，就是切图和重构，还有加上一些简单javascript逻辑，css动画，可是这，让我学到了很多基础知识和一些奇门技巧和遇到了一些不知名的坑（1px，弹窗滚动，背景固定兼容，元素平均分配溢出······）</p>
+<p>现在回忆比较有代表性的专题活动页面。</p>
+<a id="more"></a>
+<h2 id="专题"><a href="#专题" class="headerlink" title="专题"></a>专题</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;在2015年419大促的时候，我还是实习生，第一次做大促的一个专题页，给了几天时间。经验不足导致动画方式不符合要求，css的动画也遇到各种兼容性坑，js逻辑也有点乱。虽然页面比较简单，可是细节很多，如轮播的动画（阴影，渐变，滑出方式），文案根据时间改变，时间点上面也要加上事件······<br>&nbsp;&nbsp;&nbsp;&nbsp;不过最后还是把它搞出来了。那次之后，做事的态度更具责任感了和追求细腻。</p>
+<p><img src="/images/419.png" alt="419静图"><br><img src="/images/419.gif" alt="419动图"></p>
+<h2 id="活动"><a href="#活动" class="headerlink" title="活动"></a>活动</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;在去做活动生成器的项目前，闺蜜竞猜是我在唯品会做的最后一个活动。这是一个根据不同时间点，切换不同问题，然后加上倒计时和各种弹窗细节，也是一个很讲究细节的活动，如果猜中了口令，就可以拿到唯品会的优惠满减口令。不过也遇到了一个坑，弹窗滚动兼容性的问题。</p>
+<p><img src="/images/guimi.png" alt="闺蜜竞猜静图"></p>
+<h2 id="总"><a href="#总" class="headerlink" title="总"></a>总</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;总之，感谢过去能够从专题活动开始过渡到项目，专题活动是能考验细节，磨练基础的环节，本来我的javascript基础就不好，通过这种细节磨练，能够更好地巩固知识。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/24/唯品会的专题活动篇/" data-id="cj9tryxy20009hse7ffr4vezd" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/26/唯品会项目篇/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          唯品会项目篇
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Scripting/">Photoshop Scripting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/29/用JavaScript写Photoshop脚本/">用JavaScript写Photoshop脚本（Photoshop Scripting），批处理图片</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/01/ionic3与angular4做App之坑/">ionic3与angular4做App之坑</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/25/JavaScript基础笔记/">JavaScript易漏基础笔记（不断学习不断更新）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/06/javascript数据类型和类型检测/">JavaScript数据类型和类型检测</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/04/模仿知乎登录页面canvas粒子动画/">模仿知乎登录页面canvas粒子动画</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 guanlin.wu<br>
+      <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
+    </div>
+  </div>
+</footer>
+      <div class="particles-box">
+        <canvas id="particles" class="particles-canvas"></canvas>
+      </div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+
+    
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/particles.js"></script>
+  </div>
+</body>
+</html>
