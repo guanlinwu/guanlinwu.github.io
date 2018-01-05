@@ -67,6 +67,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Flex属性整理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/05/Flex属性整理/" class="article-date">
+  <time datetime="2018-01-05T02:16:36.000Z" itemprop="datePublished">2018-01-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/05/Flex属性整理/">Flex属性整理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单整理Flex的属性导图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">flex基本概念</span><br><span class="line">    -- 轴</span><br><span class="line">        --  主轴       main axis</span><br><span class="line">        --  交叉轴     cross axis</span><br><span class="line">    -- 容器</span><br><span class="line">        -- 父容器      contanier</span><br><span class="line">        -- 子容器      children</span><br><span class="line"></span><br><span class="line">容器</span><br><span class="line">    -- 父容器contanier</span><br><span class="line">        -- justify-content      设置子容器在主轴上的对齐方式</span><br><span class="line">            -- flex-start       起始端对齐</span><br><span class="line">            -- flex-end         末尾段对齐</span><br><span class="line">            -- center           居中对齐</span><br><span class="line">            -- space-around     子容器目两侧的间隔相。位于首尾两端的子容器到父容器的距离是子容器间距的一半。</span><br><span class="line">            -- space-between    两端对齐，子容器之间的间隔都相等。</span><br><span class="line"></span><br><span class="line">        -- align-items          设置子容器在交叉轴上的对齐方式</span><br><span class="line">            -- flex-start       起始端对齐</span><br><span class="line">            -- flex-end         末尾段对齐</span><br><span class="line">            -- center           居中对齐</span><br><span class="line">            -- baseline         子容器的第一行文字的基线对齐</span><br><span class="line">            -- stretch（默认）   如果项目未设置高度或设为auto，子容器拉伸至将占满整个容器的高度。</span><br><span class="line"></span><br><span class="line">        -- flex-direction       设置主轴的方向（即项目的排列方向）</span><br><span class="line">            -- row（默认值）      主轴为水平方向，起点在左端</span><br><span class="line">            -- row-reverse      主轴为水平方向，起点在右端</span><br><span class="line">            -- column           主轴为垂直方向，起点在上沿</span><br><span class="line">            -- column-reverse   主轴为垂直方向，起点在下沿</span><br><span class="line"></span><br><span class="line">        -- flex-wrap            设置换行方式</span><br><span class="line">            -- nowrap           不换行</span><br><span class="line">            -- wrap             换行</span><br><span class="line">            -- wrap-reverse     换行，第一行在下方</span><br><span class="line">        -- flex-flow            flex-direction 与 flex-wrap 的缩写</span><br><span class="line"></span><br><span class="line">        -- align-content</span><br><span class="line">            -- flex-start</span><br><span class="line">            -- flex-end</span><br><span class="line">            -- center</span><br><span class="line">            -- space-between</span><br><span class="line">            -- space-around</span><br><span class="line">            -- stretch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    -- 子容器children</span><br><span class="line">        -- flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]</span><br><span class="line">            -- 一个值：</span><br><span class="line">                -- 带单位        flex-basis: 10em | 10px | 10rem | 10%</span><br><span class="line">                -- 无单位        flex-grow: 1 (定义项目的放大比例，默认为0)</span><br><span class="line">                -- none:        0 0 auto</span><br><span class="line">                -- auto:        1 1 auto</span><br><span class="line">            -- 两个值：</span><br><span class="line">                -- flex-frow flex-basix : 1 10rem</span><br><span class="line">                -- flex-grow flex-shink : 1 1</span><br><span class="line">            -- 三个值：</span><br><span class="line">                -- flex-grow flex-shrink flex-basis: 1 1 10rem</span><br><span class="line"></span><br><span class="line">        -- align-self</span><br><span class="line">            -- flex-start       起始端对齐</span><br><span class="line">            -- flex-end         末尾段对齐</span><br><span class="line">            -- center           居中对齐</span><br><span class="line">            -- baseline         子容器的第一行文字的基线对齐</span><br><span class="line">            -- stretch（默认）   拉伸对齐</span><br><span class="line"></span><br><span class="line">        -- order                改变子容器的排列顺序, 数值越小排列越靠前。默认值为 0，可以为负值。</span><br><span class="line"></span><br><span class="line">        -- flex-grow            子容器弹性伸展的比例 默认为0</span><br><span class="line"></span><br><span class="line">        -- flex-shrink          子容器弹性收缩的比例 默认为1</span><br><span class="line"></span><br><span class="line">        -- flex-basis           子容器的原始固定尺寸</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2018/01/05/Flex属性整理/" data-id="cjc1ai6mv0001nhe7gg75zz1o" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/">Css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-用JavaScript写Photoshop脚本" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/29/用JavaScript写Photoshop脚本/" class="article-date">
@@ -90,10 +130,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p> 遇到一个日常，要用Photoshop 导出一批图片。<br> 这些图片不同的是里面的文字参数，而且图片很多。<br> 繁杂的工作当然用代码解决。<br> 于是决定温习下Photoshop Scripting， 用JavaScript写Photoshop脚本，自动修改文本内容并且批量压缩导出图片。</p>
-<p>每张图片长的类似下图：</p>
-<p><img src="/images/ps_js_1.jpg" alt="图片"></p>
-<p>每张图片只需要改变红色字体那部分参数。<br>如果用Photoshop一个地改，每张改7个文本，可能有20张，那就要操作140次了。</p>
-<p>先看成果：</p>
+<p>先看成果(自动生成的文字图层)：</p>
 <p><img src="/images/ps_js_3.png" alt="自动生成的文字图层"><br>
         
           <p class="article-more-link">
@@ -103,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/11/29/用JavaScript写Photoshop脚本/" data-id="cjaksm7rv0004mae7p06ejppo" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/11/29/用JavaScript写Photoshop脚本/" data-id="cjc1ai6n6000cnhe7zjr3vm8x" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Photoshop-Scripting/">Photoshop Scripting</a></li></ul>
@@ -149,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/10/01/ionic3与angular4做App之坑/" data-id="cj9tryxxv0005hse74jamvqex" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/10/01/ionic3与angular4做App之坑/" data-id="cjc1ai6n10005nhe7lbs8i8f6" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -185,7 +222,7 @@
       
         <p>最近一段时间在重温JavaScript基础，温故而知新，记录下一些容易漏掉的细节。</p>
 <h1 id="一-对象"><a href="#一-对象" class="headerlink" title="一 对象"></a>一 对象</h1><h3 id="hasOwnProperty-："><a href="#hasOwnProperty-：" class="headerlink" title="hasOwnProperty()："></a>hasOwnProperty()：</h3><p>如果in判断一个属性存在，这个属性不一定是改实例的，它可能是该实例继承得到的；<br>要判断一个属性是否是自身拥有的，而不是继承得到的，可以用hasOwnProperty()方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'xxx'</span></div><div class="line">&#125;;</div><div class="line">obj.hasOwnProperty(<span class="string">'name'</span>); <span class="comment">// true</span></div><div class="line">obj.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// false</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'xxx'</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.hasOwnProperty(<span class="string">'name'</span>); <span class="comment">// true</span></span><br><span class="line">obj.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2017/07/25/JavaScript基础笔记/#more">阅读全文  🤔</a>
@@ -194,7 +231,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/25/JavaScript基础笔记/" data-id="cj9tryxxh0001hse77rlauiid" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/25/JavaScript基础笔记/" data-id="cjc1ai6n30007nhe7eo70c65z" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -238,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cj9tryxxz0008hse7f2o18t60" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cjc1ai6n8000fnhe7ux2vehcz" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -282,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/" data-id="cj9tryxyf000ehse741zdgd7k" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/" data-id="cjc1ai6nd000jnhe75li7kuh9" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -325,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/03/Css常用集合（不断更新收集）/" data-id="cj9tryxxd0000hse7mmlez0d7" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/03/Css常用集合（不断更新收集）/" data-id="cjc1ai6n00004nhe7wnsqk1gb" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/">Css</a></li></ul>
@@ -368,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/28/自己写一个简单的假数据服务器/" data-id="cj9tryxyi000ghse7uvryv5pi" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/28/自己写一个简单的假数据服务器/" data-id="cjc1ai6nb000hnhe7y6h4mhqt" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li></ul>
@@ -411,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/Vue自研篇/" data-id="cj9tryxxs0004hse79c5ju2o5" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/Vue自研篇/" data-id="cjc1ai6mz0003nhe7zbmq1sld" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -455,53 +492,10 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/React自研篇/" data-id="cj9tryxxo0003hse7qs5tx61f" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/React自研篇/" data-id="cjc1ai6mq0000nhe70xprtl85" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-唯品会项目篇" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/26/唯品会项目篇/" class="article-date">
-  <time datetime="2017-06-26T02:39:55.000Z" itemprop="datePublished">2017-06-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/26/唯品会项目篇/">唯品会项目篇</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;做项目是我觉得很感兴趣的挑战。在唯品会的时候，接触过4个项目，从重构到逻辑开发，从做小组件到搭建脚手架前端工程化，每一次进步，都让我对技术进一层热爱。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/06/26/唯品会项目篇/#more">阅读全文  🤔</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/26/唯品会项目篇/" data-id="cj9tryxyb000chse7z7e70wwc" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作/">工作</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
 
     </footer>
   </div>
@@ -536,7 +530,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 13.33px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
     </div>
   </div>
 
@@ -545,7 +539,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
     </div>
   </div>
 
@@ -556,6 +550,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/05/Flex属性整理/">Flex属性整理</a>
+          </li>
         
           <li>
             <a href="/2017/11/29/用JavaScript写Photoshop脚本/">用JavaScript写Photoshop脚本（Photoshop Scripting），批处理图片</a>
@@ -573,10 +571,6 @@
             <a href="/2017/07/06/javascript数据类型和类型检测/">JavaScript数据类型和类型检测</a>
           </li>
         
-          <li>
-            <a href="/2017/07/04/模仿知乎登录页面canvas粒子动画/">模仿知乎登录页面canvas粒子动画</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -589,7 +583,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 guanlin.wu<br>
+      &copy; 2018 guanlin.wu<br>
       <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
     </div>
   </div>

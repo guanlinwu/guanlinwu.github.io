@@ -133,7 +133,7 @@
 <li>immutable</li>
 <li>服务端渲染</li>
 </ul>
-<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p><a href="http://www.redux.org.cn/docs/react-redux/quick-start.html" target="_blank" rel="external">Redux文档</a><br>Redux的源码不大，可是很精妙，使用单一树更好地管理数据，所有的 state 都以一个对象树的形式储存在一个单一的 store 中。<br>流向的过程：<br>view —&gt; action —&gt; reducer —&gt; store(state) —&gt; view<br>一、Action<br>Action 的任务是描述发生的任务<br>二、Reducer<br>Reducer 的任务是根据传入的 Action 对象去修改状态树<br>三、Store<br>Store 就是把 Reducer 和 action 联系到一起的对象<br>在 createStore源码中可以看到store返回的对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//createStore</span></div><div class="line"><span class="keyword">return</span> &#123;</div><div class="line">  dispatch,<span class="comment">//提供 dispatch(action) 方法更新 state</span></div><div class="line">  subscribe,<span class="comment">//通过 subscribe(listener) 注册监听器</span></div><div class="line">  getState,<span class="comment">//getState() 方法获取 state；</span></div><div class="line">  replaceReducer,</div><div class="line">  [$$observable]: observable</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p><a href="http://www.redux.org.cn/docs/react-redux/quick-start.html" target="_blank" rel="external">Redux文档</a><br>Redux的源码不大，可是很精妙，使用单一树更好地管理数据，所有的 state 都以一个对象树的形式储存在一个单一的 store 中。<br>流向的过程：<br>view —&gt; action —&gt; reducer —&gt; store(state) —&gt; view<br>一、Action<br>Action 的任务是描述发生的任务<br>二、Reducer<br>Reducer 的任务是根据传入的 Action 对象去修改状态树<br>三、Store<br>Store 就是把 Reducer 和 action 联系到一起的对象<br>在 createStore源码中可以看到store返回的对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//createStore</span></span><br><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  dispatch,<span class="comment">//提供 dispatch(action) 方法更新 state</span></span><br><span class="line">  subscribe,<span class="comment">//通过 subscribe(listener) 注册监听器</span></span><br><span class="line">  getState,<span class="comment">//getState() 方法获取 state；</span></span><br><span class="line">  replaceReducer,</span><br><span class="line">  [$$observable]: observable</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="自学实践"><a href="#自学实践" class="headerlink" title="自学实践"></a>自学实践</h2><p>还没有机会能够用到公司项目中，离职前其实已经在用react去重构唯品会viva产品化项目渲染页了，因为考虑到，通过生成器，每个活动页会生成一堆单一状态的json，然后根据json去构建组件，派发事件，刚刚React+Redux 是最好的实践，单一树状态的单向管理，肯定可以提高项目的渲染效率和体验。</p>
 <p>可是我自己自研尝试了下。没有主题地搞了个脚手架和简单页面，不过也基本包含了方方面面。<br>小项目（<a href="https://github.com/guanlinwu/reduxplatform/tree/v3.0/fontend" target="_blank" rel="external">前端部分Github代码</a>）涉及的：es6 + React + Redux + React-Router + Sass + Iconfont</p>
 <p>项目脚手架一开始是自己用Webpack1搭建的，后来自己升级了Webpack2，再后来参考了官方facebook的create-app脚手架，就把它搬过来了，目录架构是根据实际情况搭的。</p>
@@ -144,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/React自研篇/" data-id="cj9tryxxo0003hse7qs5tx61f" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/React自研篇/" data-id="cjc1ai6mq0000nhe70xprtl85" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -196,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 13.33px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
     </div>
   </div>
 
@@ -205,7 +205,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
     </div>
   </div>
 
@@ -216,6 +216,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/05/Flex属性整理/">Flex属性整理</a>
+          </li>
         
           <li>
             <a href="/2017/11/29/用JavaScript写Photoshop脚本/">用JavaScript写Photoshop脚本（Photoshop Scripting），批处理图片</a>
@@ -233,10 +237,6 @@
             <a href="/2017/07/06/javascript数据类型和类型检测/">JavaScript数据类型和类型检测</a>
           </li>
         
-          <li>
-            <a href="/2017/07/04/模仿知乎登录页面canvas粒子动画/">模仿知乎登录页面canvas粒子动画</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -249,7 +249,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 guanlin.wu<br>
+      &copy; 2018 guanlin.wu<br>
       <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
     </div>
   </div>

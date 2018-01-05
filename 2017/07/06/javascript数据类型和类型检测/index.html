@@ -97,26 +97,26 @@
 <a id="more"></a>
 <h2 id="等号判断"><a href="#等号判断" class="headerlink" title="等号判断"></a>等号判断</h2><ul>
 <li><p>== 判断</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">'1.23'</span> == <span class="number">1.23</span></div><div class="line"><span class="number">0</span> == <span class="literal">false</span></div><div class="line"><span class="literal">null</span> == <span class="literal">undefined</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Object</span>() == <span class="keyword">new</span> <span class="built_in">Object</span>()</div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'1.23'</span> == <span class="number">1.23</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span>() == <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>=== 判断</p>
 <ul>
 <li>类型不同，返回false</li>
-<li>类型相同<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="literal">NaN</span> ≠ <span class="literal">NaN</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Object</span> ≠ <span class="keyword">new</span> <span class="built_in">Object</span></div><div class="line"><span class="literal">null</span> === <span class="literal">null</span></div><div class="line"><span class="literal">undefined</span> === <span class="literal">undefined</span></div></pre></td></tr></table></figure>
+<li>类型相同<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> ≠ <span class="literal">NaN</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Object</span> ≠ <span class="keyword">new</span> <span class="built_in">Object</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">null</span></span><br><span class="line"><span class="literal">undefined</span> === <span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="类型检测"><a href="#类型检测" class="headerlink" title="类型检测"></a>类型检测</h2><p>类型检测常用的方法有 typeof、instanceof、Object.prototype.toString</p>
 <h3 id="typeof-适合基本类型及function检测，遇到null失效"><a href="#typeof-适合基本类型及function检测，遇到null失效" class="headerlink" title="typeof 适合基本类型及function检测，遇到null失效"></a>typeof 适合基本类型及function检测，遇到null失效</h3><p>typeof 能检测出的值为 number、boolean、string、function、object、undefined</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="number">100</span> === <span class="string">'number'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span> === <span class="string">'boolean'</span></div><div class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125; === <span class="string">'function'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> === <span class="string">'undefined'</span></div><div class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Object</span>() === <span class="string">'object'</span></div><div class="line"><span class="keyword">typeof</span> [<span class="number">1</span>， <span class="number">2</span>]  === <span class="string">'object'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span> === <span class="string">'number'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span> === <span class="string">'object'</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="number">100</span> === <span class="string">'number'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span> === <span class="string">'boolean'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125; === <span class="string">'function'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> === <span class="string">'undefined'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Object</span>() === <span class="string">'object'</span></span><br><span class="line"><span class="keyword">typeof</span> [<span class="number">1</span>， <span class="number">2</span>]  === <span class="string">'object'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span> === <span class="string">'number'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> === <span class="string">'object'</span></span><br></pre></td></tr></table></figure>
 <p>要检测Object的具体类型，可以用instanceof</p>
 <h3 id="instanceof-适合自定义对象，也可以用来检测原生对象"><a href="#instanceof-适合自定义对象，也可以用来检测原生对象" class="headerlink" title="instanceof 适合自定义对象，也可以用来检测原生对象"></a>instanceof 适合自定义对象，也可以用来检测原生对象</h3><h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString"></a>Object.prototype.toString</h3><p>通过{}.toString拿到，适合内置对象和基元类型，遇到null和undefined失效(IE678等返回[object Object])</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.prototype.toString.apply([]); === <span class="string">'[object Array]'</span>;</div><div class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); === <span class="string">'[object Function]'</span>;</div><div class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="literal">null</span>); === <span class="string">'[object Null]'</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="literal">undefined</span>); === <span class="string">'[object Undefined]'</span></div><div class="line"></div><div class="line"><span class="comment">//IE6/7/8 Object.prototype.toString.apply(null) 返回”[object Object]”</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.apply([]); === <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); === <span class="string">'[object Function]'</span>;</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="literal">null</span>); === <span class="string">'[object Null]'</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="literal">undefined</span>); === <span class="string">'[object Undefined]'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//IE6/7/8 Object.prototype.toString.apply(null) 返回”[object Object]”</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cj9tryxxz0008hse7f2o18t60" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cjc1ai6n8000fnhe7ux2vehcz" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -168,7 +168,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 13.33px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
     </div>
   </div>
 
@@ -177,7 +177,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
     </div>
   </div>
 
@@ -188,6 +188,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/05/Flex属性整理/">Flex属性整理</a>
+          </li>
         
           <li>
             <a href="/2017/11/29/用JavaScript写Photoshop脚本/">用JavaScript写Photoshop脚本（Photoshop Scripting），批处理图片</a>
@@ -205,10 +209,6 @@
             <a href="/2017/07/06/javascript数据类型和类型检测/">JavaScript数据类型和类型检测</a>
           </li>
         
-          <li>
-            <a href="/2017/07/04/模仿知乎登录页面canvas粒子动画/">模仿知乎登录页面canvas粒子动画</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -221,7 +221,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 guanlin.wu<br>
+      &copy; 2018 guanlin.wu<br>
       <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
     </div>
   </div>
