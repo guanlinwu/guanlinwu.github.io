@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript代码片段 | guanlinwu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="用于收集整理摘抄一下JavaScript代码片段，包括另类思维的技巧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript代码片段">
+<meta property="og:url" content="https://guanlinwu.github.io/2018/01/22/JavaScript代码片段/index.html">
+<meta property="og:site_name" content="guanlinwu">
+<meta property="og:description" content="用于收集整理摘抄一下JavaScript代码片段，包括另类思维的技巧。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-02T13:00:52.351Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript代码片段">
+<meta name="twitter:description" content="用于收集整理摘抄一下JavaScript代码片段，包括另类思维的技巧。">
+  
+    <link rel="alternate" href="/atom.xml" title="guanlinwu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <!--<a href="/" id="logo">guanlinwu</a>-->
+        <a href="javascript:;" id="logo">努力走向全栈-学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <!--<nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guanlinwu.github.io"></form>
+      </div>-->
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript代码片段" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/22/JavaScript代码片段/" class="article-date">
+  <time datetime="2018-01-22T01:46:40.000Z" itemprop="datePublished">2018-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript代码片段
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用于收集整理摘抄一下JavaScript代码片段，包括另类思维的技巧。</p>
+<a id="more"></a>
+<h3 id="一-如何控制一秒钟内最多点击一次-http-cn-rx-js-org-manual-overview-html-observable"><a href="#一-如何控制一秒钟内最多点击一次-http-cn-rx-js-org-manual-overview-html-observable" class="headerlink" title="一 如何控制一秒钟内最多点击一次 [http://cn.rx.js.org/manual/overview.html#observable-]"></a>一 如何控制一秒钟内最多点击一次 [<a href="http://cn.rx.js.org/manual/overview.html#observable-" target="_blank" rel="external">http://cn.rx.js.org/manual/overview.html#observable-</a>]</h3><p>先来看使用普通的 JavaScript：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> rate = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">var</span> lastClick = <span class="built_in">Date</span>.now() - rate;</span><br><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">button.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Date</span>.now() - lastClick &gt;= rate) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Clicked <span class="subst">$&#123;++count&#125;</span> times`</span>);</span><br><span class="line">    lastClick = <span class="built_in">Date</span>.now();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>使用 RxJS：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line">Rx.Observable.fromEvent(button, <span class="string">'click'</span>)</span><br><span class="line">  .throttleTime(<span class="number">1000</span>)</span><br><span class="line">  .scan(<span class="function"><span class="params">count</span> =&gt;</span> count + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">  .subscribe(<span class="function"><span class="params">count</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Clicked <span class="subst">$&#123;count&#125;</span> times`</span>));</span><br></pre></td></tr></table></figure></p>
+<h3 id="REM-方法"><a href="#REM-方法" class="headerlink" title="REM 方法"></a>REM 方法</h3><p>1 普通方案<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> docEl = doc.documentElement,</span><br><span class="line">            resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> win ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</span><br><span class="line">            recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> clientWidth = doc.documentElement.getBoundingClientRect().width || docEl.clientWidth;</span><br><span class="line">                <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</span><br><span class="line">                <span class="keyword">if</span> (clientWidth &gt;= <span class="number">750</span>) &#123;</span><br><span class="line">                    docEl.style.fontSize = <span class="string">'100px'</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">750</span>) + <span class="string">'px'</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</span><br><span class="line">        win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</span><br><span class="line">        doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, recalc, <span class="literal">false</span>);</span><br><span class="line">    &#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</span><br></pre></td></tr></table></figure></p>
+<p>2<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">docEl, t, padBaseSize</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> w,r=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> nw=<span class="built_in">Math</span>.min(docEl.getBoundingClientRect().width, padBaseSize)</span><br><span class="line">        <span class="keyword">if</span>(nw!==w) w=nw,docEl.setAttribute(<span class="string">'style'</span>,<span class="string">'font-size:'</span>+w/<span class="number">10</span>+<span class="string">'px'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(t.setAttribute(<span class="string">'style'</span>,<span class="string">'width:1vw'</span>), !t.style.width) r(),<span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, r)</span><br><span class="line">&#125;)(<span class="built_in">document</span>.documentElement, <span class="built_in">document</span>.createElement(<span class="string">'div'</span>), <span class="number">750</span>);</span><br></pre></td></tr></table></figure></p>
+<p>3 淘宝适配方案<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;Boolean&#125; [normal = false] - 默认开启页面压缩以使页面高清;</span></span><br><span class="line"><span class="comment"> * @param &#123;Number&#125; [baseFontSize = 100] - 基础fontSize, 默认100px;</span></span><br><span class="line"><span class="comment"> * @param &#123;Number&#125; [fontscale = 1] - 有的业务希望能放大一定比例的字体;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> win = <span class="built_in">window</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> win.flex = <span class="function">(<span class="params">normal, baseFontSize, fontscale</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> _baseFontSize = baseFontSize || <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">const</span> _fontscale = fontscale || <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> doc = win.document;</span><br><span class="line">  <span class="keyword">const</span> ua = navigator.userAgent;</span><br><span class="line">  <span class="keyword">const</span> matches = ua.match(<span class="regexp">/Android[\S\s]+AppleWebkit\/(\d&#123;3&#125;)/i</span>);</span><br><span class="line">  <span class="keyword">const</span> UCversion = ua.match(<span class="regexp">/U3\/((\d+|\.)&#123;5,&#125;)/i</span>);</span><br><span class="line">  <span class="keyword">const</span> isUCHd = UCversion &amp;&amp; <span class="built_in">parseInt</span>(UCversion[<span class="number">1</span>].split(<span class="string">'.'</span>).join(<span class="string">''</span>), <span class="number">10</span>) &gt;= <span class="number">80</span>;</span><br><span class="line">  <span class="keyword">const</span> isIos = navigator.appVersion.match(<span class="regexp">/(iphone|ipad|ipod)/gi</span>);</span><br><span class="line">  <span class="keyword">let</span> dpr = win.devicePixelRatio || <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (!isIos &amp;&amp; !(matches &amp;&amp; matches[<span class="number">1</span>] &gt; <span class="number">534</span>) &amp;&amp; !isUCHd) &#123;</span><br><span class="line">    <span class="comment">// 如果非iOS, 非Android4.3以上, 非UC内核, 就不执行高清, dpr设为1;</span></span><br><span class="line">    dpr = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> scale = normal ? <span class="number">1</span> : <span class="number">1</span> / dpr;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> metaEl = doc.querySelector(<span class="string">'meta[name="viewport"]'</span>);</span><br><span class="line">  <span class="keyword">if</span> (!metaEl) &#123;</span><br><span class="line">    metaEl = doc.createElement(<span class="string">'meta'</span>);</span><br><span class="line">    metaEl.setAttribute(<span class="string">'name'</span>, <span class="string">'viewport'</span>);</span><br><span class="line">    doc.head.appendChild(metaEl);</span><br><span class="line">  &#125;</span><br><span class="line">  metaEl.setAttribute(<span class="string">'content'</span>, <span class="string">`width=device-width,user-scalable=no,initial-scale=<span class="subst">$&#123;scale&#125;</span>,maximum-scale=<span class="subst">$&#123;scale&#125;</span>,minimum-scale=<span class="subst">$&#123;scale&#125;</span>`</span>);</span><br><span class="line">  doc.documentElement.style.fontSize = normal ? <span class="string">'50px'</span> : <span class="string">`<span class="subst">$&#123;_baseFontSize <span class="regexp">/ 2 * dpr * _fontscale&#125;px`;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">&#125;;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp"></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp"></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">链接：https:/</span><span class="regexp">/www.jianshu.com/</span>p<span class="regexp">/985d26b40199</span></span></span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">压缩版</span><br><span class="line">&lt;script&gt;!function(e)&#123;function t(a)&#123;if(i[a])return i[a].exports;var n=i[a]=&#123;exports:&#123;&#125;,id:a,loaded:!1&#125;;return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports&#125;var i=&#123;&#125;;return t.m=e,t.c=i,t.p=&quot;&quot;,t(0)&#125;([function(e,t)&#123;&quot;use strict&quot;;Object.defineProperty(t,&quot;__esModule&quot;,&#123;value:!0&#125;);var i=window;t[&quot;default&quot;]=i.flex=function(normal,e,t)&#123;var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d&#123;3&#125;)/i),l=o.match(/U3\/((\d+|\.)&#123;5,&#125;)/i),c=l&amp;&amp;parseInt(l[1].split(&quot;.&quot;).join(&quot;&quot;),10)&gt;=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&amp;&amp;d[1]&gt;534||c||(s=1);var u=normal?1:1/s,m=r.querySelector(&apos;meta[name=&quot;viewport&quot;]&apos;);m||(m=r.createElement(&quot;meta&quot;),m.setAttribute(&quot;name&quot;,&quot;viewport&quot;),r.head.appendChild(m)),m.setAttribute(&quot;content&quot;,&quot;width=device-width,user-scalable=no,initial-scale=&quot;+u+&quot;,maximum-scale=&quot;+u+&quot;,minimum-scale=&quot;+u),r.documentElement.style.fontSize=normal?&quot;50px&quot;: a/2*s*n+&quot;px&quot;&#125;,e.exports=t[&quot;default&quot;]&#125;]);  flex(false,100, 1);&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">链接：https://www.jianshu.com/p/985d26b40199</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2018/01/22/JavaScript代码片段/" data-id="cjdij6im10009t28im8jexece" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/05/Flex属性整理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Flex属性整理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Scripting/">Photoshop Scripting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 13.33px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/22/JavaScript代码片段/">JavaScript代码片段</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/05/Flex属性整理/">Flex属性整理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/29/用JavaScript写Photoshop脚本/">用JavaScript写Photoshop脚本（Photoshop Scripting），批处理图片</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/01/ionic3与angular4做App之坑/">ionic3与angular4做App之坑</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/25/JavaScript基础笔记/">JavaScript易漏基础笔记（不断学习不断更新）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 guanlin.wu<br>
+      <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
+    </div>
+  </div>
+</footer>
+      <div class="particles-box">
+        <canvas id="particles" class="particles-canvas"></canvas>
+      </div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+
+    
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/particles.js"></script>
+  </div>
+</body>
+</html>
