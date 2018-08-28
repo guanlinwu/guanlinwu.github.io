@@ -67,6 +67,92 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Nginx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/24/Nginx/" class="article-date">
+  <time datetime="2018-07-24T07:48:20.000Z" itemprop="datePublished">2018-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/Nginx/">Nginx</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录Nginx的一些配置和命令<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/07/24/Nginx/#more">阅读全文  🤔</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2018/07/24/Nginx/" data-id="cjjzehbve000a748im8bug0qs" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-记H5活动遇到的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/07/记H5活动遇到的坑/" class="article-date">
+  <time datetime="2018-03-07T13:32:06.000Z" itemprop="datePublished">2018-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/07/记H5活动遇到的坑/">记H5活动遇到的坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从项目转型到H5兼项目，期间做了一些H5，此处记录下做H5遇到的一些坑。</p>
+<h2 id="一-微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效"><a href="#一-微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效" class="headerlink" title="一 微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效"></a>一 微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效</h2><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="IOS下"><a href="#IOS下" class="headerlink" title="IOS下"></a>IOS下</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> isPageHide = <span class="literal">false</span>;</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'pageshow'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isPageHide) &#123;</span><br><span class="line">        <span class="built_in">window</span>.location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'pagehide'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    isPageHide = <span class="literal">true</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Android："><a href="#Android：" class="headerlink" title="Android："></a>Android：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//需要被刷新的页面放上以下代码</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> needRefresh = sessionStorage.getItem(<span class="string">"need-refresh"</span>);</span><br><span class="line">    <span class="keyword">if</span>(needRefresh)&#123;</span><br><span class="line">        sessionStorage.removeItem(<span class="string">"need-refresh"</span>);</span><br><span class="line">        location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//跳转的页面放上以下代码</span></span><br><span class="line">sessionStorage.setItem(<span class="string">"need-refresh"</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/07/记H5活动遇到的坑/#more">阅读全文  🤔</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2018/03/07/记H5活动遇到的坑/" data-id="cjjzehbvq000p748iy8bvl7su" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript代码片段" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/22/JavaScript代码片段/" class="article-date">
@@ -98,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2018/01/22/JavaScript代码片段/" data-id="cjdij6im10009t28im8jexece" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2018/01/22/JavaScript代码片段/" data-id="cjjzehbuu0000748ix5fd5nyk" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -136,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2018/01/05/Flex属性整理/" data-id="cjdij6imb000lt28i3b7ln9e4" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2018/01/05/Flex属性整理/" data-id="cjjzehbv20002748ig6beqj7h" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/">Css</a></li></ul>
@@ -181,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/11/29/用JavaScript写Photoshop脚本/" data-id="cjdij6im8000gt28i19o59bqv" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/11/29/用JavaScript写Photoshop脚本/" data-id="cjjzehbvm000i748i7cr5ywo6" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Photoshop-Scripting/">Photoshop Scripting</a></li></ul>
@@ -227,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/10/01/ionic3与angular4做App之坑/" data-id="cjdij6ilq0001t28i9eqqtiq0" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/10/01/ionic3与angular4做App之坑/" data-id="cjjzehbv70005748ipr1jvz2x" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -272,7 +358,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/25/JavaScript基础笔记/" data-id="cjdij6ilv0003t28i6l1jrrgw" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/25/JavaScript基础笔记/" data-id="cjjzehbv60004748iagtyfdr2" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -316,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cjdij6im3000ct28io3qdcbgp" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/06/javascript数据类型和类型检测/" data-id="cjjzehbvl000g748i8d0n0cqn" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -360,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/" data-id="cjdij6ima000jt28i8nxv1680" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/04/模仿知乎登录页面canvas粒子动画/" data-id="cjjzehbvo000l748idg84bwpr" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -403,96 +489,10 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/07/03/Css常用集合（不断更新收集）/" data-id="cjdij6ill0000t28i7ht0ll0z" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://guanlinwu.github.io/2017/07/03/Css常用集合（不断更新收集）/" data-id="cjjzehbuz0001748iej8fkx6h" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/">Css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-自己写一个简单的假数据服务器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/28/自己写一个简单的假数据服务器/" class="article-date">
-  <time datetime="2017-06-28T03:33:25.000Z" itemprop="datePublished">2017-06-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/28/自己写一个简单的假数据服务器/">从0开发一个假数据服务器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>现在开发都是前后端分离，在后端接口没有出来之前，使用假数据mock能提高开发效率。现在执行假数据的方法有很多，如mock.js, easymock，json-server。因为接触了node.js，能够捕捉请求并返回数据，所以我尝试给自己写一个简单的假数据服务器。（<a href="https://github.com/guanlinwu/simple-mock" target="_blank" rel="external">完整代码</a>）</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/06/28/自己写一个简单的假数据服务器/#more">阅读全文  🤔</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/28/自己写一个简单的假数据服务器/" data-id="cjdij6im5000et28iu3w6mc4d" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Vue自研篇" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/27/Vue自研篇/" class="article-date">
-  <time datetime="2017-06-27T15:51:50.000Z" itemprop="datePublished">2017-06-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/27/Vue自研篇/">Vue自研篇</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Vue是当前非常火热的前端框架之一，特别是vue2.0，强劲了不少。<br>趁着做外包系统（<a href="https://github.com/guanlinwu/quanjian/tree/v2/frontend" target="_blank" rel="external">Github代码</a>），就用vue2.0 + vue-router + axios + vue-cli + element-ui + electron 去实践了一下。<br>最终，代码用vue开发，然后打包成一个electron桌面应用程序。<br>由于上传的代码没有完整的后端接口，所以自己用node + express写了一个个性化的假数据服务器。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/06/27/Vue自研篇/#more">阅读全文  🤔</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://guanlinwu.github.io/2017/06/27/Vue自研篇/" data-id="cjdij6ilw0004t28ii0z3bmcz" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
 
     </footer>
   </div>
@@ -517,7 +517,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Scripting/">Photoshop Scripting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Scripting/">Photoshop Scripting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
     </div>
   </div>
 
@@ -527,7 +527,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 13.33px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 13.33px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
     </div>
   </div>
 
@@ -536,7 +536,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
     </div>
   </div>
 
@@ -549,6 +549,14 @@
       <ul>
         
           <li>
+            <a href="/2018/07/24/Nginx/">Nginx</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/07/记H5活动遇到的坑/">记H5活动遇到的坑</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/22/JavaScript代码片段/">JavaScript代码片段</a>
           </li>
         
@@ -558,14 +566,6 @@
         
           <li>
             <a href="/2017/11/29/用JavaScript写Photoshop脚本/">用JavaScript写Photoshop脚本（Photoshop Scripting），批处理图片</a>
-          </li>
-        
-          <li>
-            <a href="/2017/10/01/ionic3与angular4做App之坑/">ionic3与angular4做App之坑</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/25/JavaScript基础笔记/">JavaScript易漏基础笔记（不断学习不断更新）</a>
           </li>
         
       </ul>

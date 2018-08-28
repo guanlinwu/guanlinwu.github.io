@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>记H5活动遇到的坑 | guanlinwu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="从项目转型到H5兼项目，期间做了一些H5，此处记录下做H5遇到的一些坑。 一 微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效解决方法IOS下12345678910var isPageHide = false;window.addEventListener(&apos;pageshow&apos;, function () &amp;#123;    if (isPageHide) &amp;#123;        windo">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记H5活动遇到的坑">
+<meta property="og:url" content="https://guanlinwu.github.io/2018/03/07/记H5活动遇到的坑/index.html">
+<meta property="og:site_name" content="guanlinwu">
+<meta property="og:description" content="从项目转型到H5兼项目，期间做了一些H5，此处记录下做H5遇到的一些坑。 一 微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效解决方法IOS下12345678910var isPageHide = false;window.addEventListener(&apos;pageshow&apos;, function () &amp;#123;    if (isPageHide) &amp;#123;        windo">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-28T08:03:21.135Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记H5活动遇到的坑">
+<meta name="twitter:description" content="从项目转型到H5兼项目，期间做了一些H5，此处记录下做H5遇到的一些坑。 一 微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效解决方法IOS下12345678910var isPageHide = false;window.addEventListener(&apos;pageshow&apos;, function () &amp;#123;    if (isPageHide) &amp;#123;        windo">
+  
+    <link rel="alternate" href="/atom.xml" title="guanlinwu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <!--<a href="/" id="logo">guanlinwu</a>-->
+        <a href="javascript:;" id="logo">努力走向全栈-学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <!--<nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guanlinwu.github.io"></form>
+      </div>-->
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-记H5活动遇到的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/07/记H5活动遇到的坑/" class="article-date">
+  <time datetime="2018-03-07T13:32:06.000Z" itemprop="datePublished">2018-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      记H5活动遇到的坑
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从项目转型到H5兼项目，期间做了一些H5，此处记录下做H5遇到的一些坑。</p>
+<h2 id="一-微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效"><a href="#一-微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效" class="headerlink" title="一 微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效"></a>一 微信返回上一页，IOS系统不能刷新，导致屏蔽分享无效</h2><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="IOS下"><a href="#IOS下" class="headerlink" title="IOS下"></a>IOS下</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> isPageHide = <span class="literal">false</span>;</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'pageshow'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isPageHide) &#123;</span><br><span class="line">        <span class="built_in">window</span>.location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'pagehide'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    isPageHide = <span class="literal">true</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Android："><a href="#Android：" class="headerlink" title="Android："></a>Android：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//需要被刷新的页面放上以下代码</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> needRefresh = sessionStorage.getItem(<span class="string">"need-refresh"</span>);</span><br><span class="line">    <span class="keyword">if</span>(needRefresh)&#123;</span><br><span class="line">        sessionStorage.removeItem(<span class="string">"need-refresh"</span>);</span><br><span class="line">        location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//跳转的页面放上以下代码</span></span><br><span class="line">sessionStorage.setItem(<span class="string">"need-refresh"</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="二-视频音频类"><a href="#二-视频音频类" class="headerlink" title="二 视频音频类"></a>二 视频音频类</h2><h3 id="1-IOS下，视频音频使用“preload”属性，无法自动触发预加载"><a href="#1-IOS下，视频音频使用“preload”属性，无法自动触发预加载" class="headerlink" title="1 IOS下，视频音频使用“preload”属性，无法自动触发预加载"></a>1 IOS下，视频音频使用“preload”属性，无法自动触发预加载</h3><ul>
+<li>解决方法：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//加载</span></span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'#video-1'</span>).$firstVideo.load();</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-如何在播放之前预加载整个html5视频"><a href="#2-如何在播放之前预加载整个html5视频" class="headerlink" title="2 如何在播放之前预加载整个html5视频"></a>2 如何在播放之前预加载整个html5视频</h3><p>可以查看 <a href="http://dinbror.dk/blog/how-to-preload-entire-html5-video-before-play-solved/，" target="_blank" rel="external">http://dinbror.dk/blog/how-to-preload-entire-html5-video-before-play-solved/，</a><br>第四个方法不错。</p>
+<h3 id="3-如果视频尺寸不友好，导致视频在不同的h5被横向拉伸或者纵向拉伸"><a href="#3-如果视频尺寸不友好，导致视频在不同的h5被横向拉伸或者纵向拉伸" class="headerlink" title="3 如果视频尺寸不友好，导致视频在不同的h5被横向拉伸或者纵向拉伸"></a>3 如果视频尺寸不友好，导致视频在不同的h5被横向拉伸或者纵向拉伸</h3><ul>
+<li>解决方法：<ul>
+<li>方法一：最好是让视频制作方重新修改尺寸，接近移动端的尺寸，例如 667 * 1280 （减去微信顶部栏）</li>
+<li>方法二：为了保证视频等比例，只能舍弃一点视觉效果了，该方法可能导致视频左右两边黑边或者下方黑色。按照视频的比例去处理。如果 【当前视野窗口的宽度/当前视野窗口的高度】 大于 【视频原尺寸的宽度/高度】，则以高度为参考值缩放， 否则以宽度为参考值缩放<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> radio                        = <span class="number">1080</span>/<span class="number">1920</span> <span class="comment">//视频原尺寸的宽度/高度</span></span><br><span class="line"><span class="keyword">var</span> deviceRadio                  = winWidth/winHeight <span class="comment">//前视野窗口的宽度/当前视野窗口的高度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (deviceRadio &gt; radio) &#123;</span><br><span class="line">    <span class="comment">//以高度为参考值缩放</span></span><br><span class="line">    <span class="built_in">document</span>.documentElement.style.fontSize = (winHeight * radio) / <span class="number">750</span> * <span class="number">100</span> + <span class="string">'px'</span>; <span class="comment">//重新计算REM</span></span><br><span class="line">    $videoNode.style.width                  = winHeight*radio + <span class="string">'px'</span>; <span class="comment">//重新计算宽度</span></span><br><span class="line">    $videoNode.style.height                 = winHeight + <span class="string">'px'</span>; <span class="comment">//重新计算高度</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//以宽度为参考值缩放</span></span><br><span class="line">    $videoNode.style.width = winWidth + <span class="string">'px'</span>;</span><br><span class="line">    $videoNode.style.height = winWidth/radio + <span class="string">'px'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2018/03/07/记H5活动遇到的坑/" data-id="cjjzehbvq000p748iy8bvl7su" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/24/Nginx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Nginx
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/22/JavaScript代码片段/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript代码片段</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Scripting/">Photoshop Scripting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Css/" style="font-size: 13.33px;">Css</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Photoshop-Scripting/" style="font-size: 10px;">Photoshop Scripting</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/工作/" style="font-size: 13.33px;">工作</a> <a href="/tags/项目/" style="font-size: 20px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/24/Nginx/">Nginx</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/07/记H5活动遇到的坑/">记H5活动遇到的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/22/JavaScript代码片段/">JavaScript代码片段</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/05/Flex属性整理/">Flex属性整理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/29/用JavaScript写Photoshop脚本/">用JavaScript写Photoshop脚本（Photoshop Scripting），批处理图片</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 guanlin.wu<br>
+      <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
+    </div>
+  </div>
+</footer>
+      <div class="particles-box">
+        <canvas id="particles" class="particles-canvas"></canvas>
+      </div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+
+    
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/particles.js"></script>
+  </div>
+</body>
+</html>

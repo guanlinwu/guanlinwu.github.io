@@ -3,16 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: javascript | guanlinwu</title>
+  <title>Nginx | guanlinwu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="guanlinwu">
-<meta property="og:url" content="https://guanlinwu.github.io/tags/javascript/index.html">
+  <meta name="description" content="记录Nginx的一些配置和命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx">
+<meta property="og:url" content="https://guanlinwu.github.io/2018/07/24/Nginx/index.html">
 <meta property="og:site_name" content="guanlinwu">
+<meta property="og:description" content="记录Nginx的一些配置和命令">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-24T07:51:38.465Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="guanlinwu">
+<meta name="twitter:title" content="Nginx">
+<meta name="twitter:description" content="记录Nginx的一些配置和命令">
   
     <link rel="alternate" href="/atom.xml" title="guanlinwu" type="application/atom+xml">
   
@@ -65,39 +69,52 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/07/记H5活动遇到的坑/" class="archive-article-date">
-  <time datetime="2018-03-07T13:32:06.000Z" itemprop="datePublished">3月 7</time>
+        <section id="main"><article id="post-Nginx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/24/Nginx/" class="article-date">
+  <time datetime="2018-07-24T07:48:20.000Z" itemprop="datePublished">2018-07-24</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/07/记H5活动遇到的坑/">记H5活动遇到的坑</a>
+    <h1 class="article-title" itemprop="name">
+      Nginx
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录Nginx的一些配置和命令<br><a id="more"></a></p>
+<h2 id="一-Nginx-http和https的一份配置"><a href="#一-Nginx-http和https的一份配置" class="headerlink" title="一 Nginx http和https的一份配置"></a>一 Nginx http和https的一份配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    listen 443 ssl http2;</span><br><span class="line">    ssl_certificate /usr/<span class="built_in">local</span>/nginx/conf/ssl/www.guanlinwu.cn.crt;</span><br><span class="line">    ssl_certificate_key /usr/<span class="built_in">local</span>/nginx/conf/ssl/www.guanlinwu.cn.key;</span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_ciphers EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    ssl_session_timeout 10m;</span><br><span class="line">    ssl_session_cache <span class="built_in">builtin</span>:1000 shared:SSL:10m;</span><br><span class="line">    ssl_buffer_size 1400;</span><br><span class="line">    add_header Strict-Transport-Security max-age=15768000;</span><br><span class="line">    ssl_stapling on;</span><br><span class="line">    ssl_stapling_verify on;</span><br><span class="line">    server_name www.guanlinwu.cn;</span><br><span class="line">    access_log /data/wwwlogs/www.guanlinwu.cn_nginx.log combined;</span><br><span class="line">    index index.html index.htm index.php;</span><br><span class="line">    root /data/wwwroot/www.guanlinwu.cn;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$ssl_protocol</span> = <span class="string">""</span>) &#123; <span class="built_in">return</span> 301 https://<span class="variable">$host</span><span class="variable">$request_uri</span>; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files <span class="variable">$uri</span> @apache;</span><br><span class="line">    &#125;</span><br><span class="line">    location @apache &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:88;</span><br><span class="line">        include proxy.conf;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~ .*\.(php|php5|cgi|pl)?$ &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:88;</span><br><span class="line">        include proxy.conf;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|flv|mp4|ico)$ &#123;</span><br><span class="line">        expires 30d;</span><br><span class="line">        access_log off;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~ .*\.(js|css)?$ &#123;</span><br><span class="line">        expires 7d;</span><br><span class="line">        access_log off;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~ /\.ht &#123;</span><br><span class="line">        deny all;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://guanlinwu.github.io/2018/07/24/Nginx/" data-id="cjjzehbve000a748im8bug0qs" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/07/记H5活动遇到的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">记H5活动遇到的坑</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
@@ -156,58 +173,6 @@
           <li>
             <a href="/2018/01/05/Flex属性整理/">Flex属性整理</a>
           </li>
-        
-          <li>
-            <a href="/2017/11/29/用JavaScript写Photoshop脚本/">用JavaScript写Photoshop脚本（Photoshop Scripting），批处理图片</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 guanlin.wu<br>
-      <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>-->
-    </div>
-  </div>
-</footer>
-      <div class="particles-box">
-        <canvas id="particles" class="particles-canvas"></canvas>
-      </div>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">主页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-</nav>
-
-    
-
-<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
-<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-<script src="/js/particles.js"></script>
-  </div>
-</body>
-</html> </li>
         
           <li>
             <a href="/2017/11/29/用JavaScript写Photoshop脚本/">用JavaScript写Photoshop脚本（Photoshop Scripting），批处理图片</a>
